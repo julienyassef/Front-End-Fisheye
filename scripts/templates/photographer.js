@@ -1,9 +1,9 @@
-function photographerTemplate(data) {
+const photographerTemplate = (data) => {
     const { name, portrait } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
-    function getUserCardDOM() {
+const getUserCardDOM = () => {
         const article = document.createElement( 'article' );
         const img = document.createElement( 'img' );
         img.setAttribute("src", picture)
