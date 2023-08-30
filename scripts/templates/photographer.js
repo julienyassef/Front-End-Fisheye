@@ -8,31 +8,40 @@ const photographerTemplate = (data) => {
 
     // création partie link clicable avec photo et nom
         const linkPagePhotographer = document.createElement( 'a' );
-        linkPagePhotographer.href = "#"; //voir pour mettre le lien de la page photographe
+            linkPagePhotographer.href = "#"; //voir pour mettre le lien de la page photographe
+
         const img = document.createElement( 'img' );
-        img.src = picture;
-        img.alt = name;
+            img.src = picture;
+            img.alt = name;
+        
         const h2 = document.createElement( 'h2' );
-        h2.textContent = name;
+            h2.textContent = name;
+            h2.setAttribute('aria-label', `Nom du photographe : ${name}`);
 
     // création partie info photographe
         const divTextContent = document.createElement( 'div' );
+
         const h3 = document.createElement( 'h3' );
-        h3.textContent = `${city}, ${country}`;
+            h3.textContent = `${city}, ${country}`;
+            h3.setAttribute('aria-label', `situation géographique du photographe : ${city}, ${country}`);
+
         const pTagline = document.createElement( 'p' );
-        pTagline.textContent = tagline;
+            pTagline.textContent = tagline;
+            PTagline.setAttribute('aria-label', `Slogan du photographe : ${p}`);
+
         const pPrice = document.createElement( 'p' );
-        pPrice.textContent = `${price}€ / jour`;
+            pPrice.textContent = `${price}€ / jour`;
+            pPrice.setAttribute('aria-label', `Tarif du photographe à la journée : ${`price`}€`);
 
     //  Ajout des élèments à la structure HTML
         article.appendChild(linkPagePhotographer);
-        linkPagePhotographer.appendChild(img);
-        linkPagePhotographer.appendChild(h2)
+            linkPagePhotographer.appendChild(img);
+            linkPagePhotographer.appendChild(h2)
 
         article.appendChild(divTextContent);
-        divTextContent.appendChild(h3);
-        divTextContent.appendChild(pTagline);
-        divTextContent.appendChild(pPrice);
+            divTextContent.appendChild(h3);
+            divTextContent.appendChild(pTagline);
+            divTextContent.appendChild(pPrice);
 
         return (article);
     }
