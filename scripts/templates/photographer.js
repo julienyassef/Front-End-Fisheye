@@ -3,7 +3,7 @@ const photographerTemplate = (data) => {
 
     const picture = `assets/photographers/${portrait}`;
 
-const getUserCardDOM = () => {
+    const getUserCardDOM = () => {
         const article = document.createElement( 'article' );
 
     // création partie link clicable avec photo et nom
@@ -36,5 +36,5 @@ const getUserCardDOM = () => {
 
         return (article);
     }
-    return { name, picture, getUserCardDOM }
+    return { name, picture, city, country, tagline, price, getUserCardDOM }
 }
