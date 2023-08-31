@@ -27,19 +27,56 @@ h1 {
   grid-template-columns: 1fr 1fr 1fr;
   gap: 70px;
   margin-top: 100px;
+  margin-bottom: 100px;
 }
-.photographer_section article {
+
+.card-photographer {
   justify-self: center;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
 }
-.photographer_section article img {
+.card-photographer__link {
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.card-photographer__photo {
   height: 200px;
   width: 200px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
-.photographer_section article h2 {
+.card-photographer__name {
   color: #D3573C;
+  text-align: center;
   font-size: 36px;
+  margin: 0;
+  margin-top: 15px;
+}
+.card-photographer__content {
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin: 0;
+}
+.card-photographer__locality {
+  color: #901C1C;
+  font-size: 13px;
+  margin: 5px;
+}
+.card-photographer__tgaline {
+  color: #000;
+  margin: 3px;
+  font-size: 10px;
+}
+.card-photographer__price {
+  color: #757575;
+  margin: 0;
+  font-size: 9px;
 }/*# sourceMappingURL=styles.css.map */

@@ -27,21 +27,59 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 70px;
-    margin-top: 100px;
-    & article {
-        justify-self: center;
+    margin-top: 100px;  
+    margin-bottom: 100px; 
+}
+
+.card-photographer {
+    justify-self: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; 
+
+    &__link {
+        text-decoration: none; 
         display: flex;
         justify-content: center;
-        align-items: center;
+        align-items: center; 
         flex-direction: column; 
-        & img {
-            height: 200px;
-            width: 200px;
-        }
-        & h2 {
-            color: #D3573C;
-            font-size: 36px;
-        }
-    } 
+    }
+    &__photo {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    &__name {
+        color: #D3573C;
+        text-align: center;
+        font-size: 36px;
+        margin: 0;
+        margin-top: 15px;
+    }
+    &__content {
+        text-align: center;
+        font-style: normal;
+        font-weight: 400;
+        line-height: normal;
+        margin: 0;
+    }
+    &__locality { 
+        color: #901C1C;
+        font-size: 13px;
+        margin: 5px;
+        
+    }
+    &__tgaline {
+        color: #000;
+        margin: 3px;
+        font-size: 10px;
+    }
+    &__price {
+        color: #757575;
+        margin:0;
+        font-size: 9px;
+    }
 }
 
