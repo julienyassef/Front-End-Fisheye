@@ -27,11 +27,11 @@ const photographerTemplate = (data) => {
 
         const pTagline = document.createElement( 'p' );
             pTagline.textContent = tagline;
-            PTagline.setAttribute('aria-label', `Slogan du photographe : ${p}`);
+            pTagline.setAttribute('aria-label', `Slogan du photographe : ${pTagline}`);
 
         const pPrice = document.createElement( 'p' );
             pPrice.textContent = `${price}€ / jour`;
-            pPrice.setAttribute('aria-label', `Tarif du photographe à la journée : ${`price`}€`);
+            pPrice.setAttribute('aria-label', `Tarif du photographe à la journée : ${price}€`);
 
     //  Ajout des élèments à la structure HTML
         article.appendChild(linkPagePhotographer);
@@ -45,6 +45,5 @@ const photographerTemplate = (data) => {
 
         return (article);
     }
-    
     return { name, picture, city, country, tagline, price, getUserCardDOM }
 }
