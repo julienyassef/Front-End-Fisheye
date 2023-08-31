@@ -5,32 +5,40 @@ const photographerTemplate = (data) => {
 
     const getUserCardDOM = () => {
         const article = document.createElement( 'article' );
+            article.classList.add('card-photographer')
 
     // création partie link clicable avec photo et nom
         const linkPagePhotographer = document.createElement( 'a' );
+            linkPagePhotographer.classList.add('card-photographer__link')
             linkPagePhotographer.href = "#"; //voir pour mettre le lien de la page photographe
 
         const img = document.createElement( 'img' );
             img.src = picture;
             img.alt = name;
+            img.classList.add('card-photographer__photo')
         
         const h2 = document.createElement( 'h2' );
             h2.textContent = name;
+            h2.classList.add('card-photographer__name');
             h2.setAttribute('aria-label', `Nom du photographe : ${name}`);
 
     // création partie info photographe
         const divTextContent = document.createElement( 'div' );
+            divTextContent.classList.add('card-photographer__content');    
 
         const h3 = document.createElement( 'h3' );
             h3.textContent = `${city}, ${country}`;
+            h3.classList.add('card-photographer__locality');
             h3.setAttribute('aria-label', `situation géographique du photographe : ${city}, ${country}`);
 
         const pTagline = document.createElement( 'p' );
             pTagline.textContent = tagline;
+            pTagline.classList.add('card-photographer__tgaline');
             pTagline.setAttribute('aria-label', `Slogan du photographe : ${pTagline}`);
 
         const pPrice = document.createElement( 'p' );
             pPrice.textContent = `${price}€ / jour`;
+            pPrice.classList.add('card-photographer__price');
             pPrice.setAttribute('aria-label', `Tarif du photographe à la journée : ${price}€`);
 
     //  Ajout des élèments à la structure HTML
