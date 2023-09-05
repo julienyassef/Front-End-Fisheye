@@ -1,42 +1,35 @@
-    async function getPhotographers() {
-        // Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet, 
-        // mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
-        let photographers = [
-            {
-                "name": "Ma data test",
-                "id": 1,
-                "city": "Paris",
-                "country": "France",
-                "tagline": "Ceci est ma data test",
-                "price": 400,
-                "portrait": "account.png"
-            },
-            {
-                "name": "Autre data test",
-                "id": 2,
-                "city": "Londres",
-                "country": "UK",
-                "tagline": "Ceci est ma data test 2",
-                "price": 500,
-                "portrait": "account.png"
-            },
-        ]
-        // et bien retourner le tableau photographers seulement une fois récupéré
-        return ({
-            photographers: [...photographers, ...photographers, ...photographers]})
+// Cette fonction asynchrone récupère les données des photographes à partir du JSON.
+const getPhotographers = async () => {
+    try {
+        // récupérer des données à partir du JSON
+        const response = await fetch('data/photographers.json'); 
+        // la réponse de la requête est transformée en données JSON 
+        const photographersData = await response.json();
+        return photographersData;
+    } catch (error) {
+        console.error('Une erreur est survenue :', error);
+        return { photographers: [] };
     }
-
-    async function displayData(photographers) {
+};
+// function qui affiche les donnés des phtographes dans le DOM
+    const displayData = async(photographers) => {
+        // sélection une div en html pour mettre le tableau
         const photographersSection = document.querySelector(".photographer_section");
 
+        // parcourt chaque photographe dans le tableau des donnés
         photographers.forEach((photographer) => {
+            // Utilise un modèle de card pour créer une card pour chaque photographe.
             const photographerModel = photographerTemplate(photographer);
+            // Obtient le contenu DOM de la card  à partir du modèle créé dans l'autre fichier js.
+            // console.log(photographerModel)
             const userCardDOM = photographerModel.getUserCardDOM();
+            // console.log(userCardDOM)
+            //ajout la carte dans le DOM
             photographersSection.appendChild(userCardDOM);
         });
     }
 
-    async function init() {
+    const init = async() => {
         // Récupère les datas des photographes
         const { photographers } = await getPhotographers();
         displayData(photographers);
