@@ -1,5 +1,5 @@
 const photographerTemplate = (data) => {
-    const { name, portrait, city, country, tagline, price } = data;
+    const { name, portrait, city, country, tagline, price, id } = data;
 
     const picture = `assets/photographers/${portrait}`;
 
@@ -10,7 +10,7 @@ const photographerTemplate = (data) => {
     // création partie link clicable avec photo et nom
         const linkPagePhotographer = document.createElement( 'a' );
             linkPagePhotographer.classList.add('card-photographer__link')
-            linkPagePhotographer.href = "#"; //voir pour mettre le lien de la page photographe
+            linkPagePhotographer.href = `./photographer.html?id=${id}`; //voir pour mettre le lien de la page photographe
 
         const img = document.createElement( 'img' );
             img.src = picture;
@@ -55,3 +55,6 @@ const photographerTemplate = (data) => {
     }
     return { name, picture, city, country, tagline, price, getUserCardDOM }
 }
+
+
+export default photographerTemplate
