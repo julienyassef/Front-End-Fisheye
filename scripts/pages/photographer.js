@@ -38,7 +38,7 @@ const getPhotographer = async () => {
         const userCardDOM = photographerModel.getUserCardDOM();
 
         // Sélectionne une div en HTML pour mettre la card
-        const photographersSection = document.querySelector(".photograph-header");
+        const photographersSection = document.querySelector("main");
 
         // Ajoute la carte au DOM
         photographersSection.appendChild(userCardDOM);

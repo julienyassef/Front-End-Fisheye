@@ -1,0 +1,78 @@
+@import url("photographer.css");
+
+body {
+    font-family: "DM Sans", sans-serif;
+    margin: 0;
+}
+
+
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 90px;
+}
+
+h1 {
+    color: #901C1C;
+    margin-right: 100px;
+}
+
+.logo {
+    height: 50px;
+    margin-left: 100px;
+}
+
+.photograph-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 50px;
+    align-items: center;
+    justify-items: center;
+
+    &__profil {
+        height: auto;
+        width: auto;  
+        margin-left: 30px;  
+        &__name {
+            color: #D3573C;
+            text-align:left;
+            font-size: 64px;
+            margin: 0;
+            margin-top: 15px; 
+        }
+        &__content {
+            text-align:left;
+            font-weight: 400;
+            line-height: normal;
+            margin: 0;
+            &__locality {
+                color: #901C1C;
+                font-size: 24px;
+                margin: 10px;
+            }
+            &__tgaline {
+                font-size: 18px;
+                color: #525252;
+                margin: 10px;
+            }
+        }
+    }
+    &__contact_button{
+        
+    }
+    &__photo {
+        height: 200px;
+        width: 200px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+}
+
+
+
+
+
