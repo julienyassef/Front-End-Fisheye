@@ -55,8 +55,11 @@ const pagePhotographerTemplate = (data) => {
 
         return (photographHeader);
     }
+
+
     return { name, picture, city, country, tagline, price, getUserCardDOM }
 }
 
 
 export default pagePhotographerTemplate
+

@@ -73,6 +73,30 @@ h1 {
 }
 
 
+.media-photographer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 70px;
+    margin-top: 50px;
+    align-items: center;
+    justify-items: center;
+    &__card {
+        &__img {
+            height: 300px;
+            width: 350px;
+            // flex-shrink: 1;
+    
+        }
+        &__content {
+            &__description {
+            
+            }
+            &__like {
+            
+            }
+        }
+    }
 
+}
 
 

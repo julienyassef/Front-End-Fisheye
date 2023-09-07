@@ -1,6 +1,9 @@
-import pagePhotographerTemplate from '../templates/page-photographer.js'
+
+import pagePhotographerTemplate from '../templates/factory-photographer.js'
+import pageMediaTemplate from '../templates/factory-media.js'
 import { getPhotographers } from "../utils/getData.js"
-//Mettre le code JavaScript lié à la page photographer.html
+
+
 
 // permet de récupérer l'ID du photographe sur l'url de la page 
 const getID = () => {
@@ -24,10 +27,6 @@ const getPhotographer = async () => {
     console.log(photographers)
     console.log(medias)
 
-    // trouver dans data tout ce qui est en relation avec le photographerId
-    // boucler sur data.photographer
-    // boucler sur data.medias
-
     // Trouve le photographe dont l'ID correspond à celui dans l'URL
     const photographerDetail = photographers.find(photographer => photographer.id == photographerId)
 
@@ -38,11 +37,38 @@ const getPhotographer = async () => {
         const userCardDOM = photographerModel.getUserCardDOM();
 
         // Sélectionne une div en HTML pour mettre la card
-        const photographersSection = document.querySelector("main");
+        const photographersSection = document.querySelector(".header-profil");
 
         // Ajoute la carte au DOM
         photographersSection.appendChild(userCardDOM);
-    }
+
+        const mediaSection = document.querySelector('.media-photographer');
+        const mediaOfPhotographer = medias.filter(media => media.photographerId == photographerId);
+
+        mediaOfPhotographer.forEach(media => {
+            const mediaModel = pageMediaTemplate(media);
+            const mediaCardDOM = mediaModel.getModelCardDOM();
+            mediaSection.appendChild(mediaCardDOM);
+        });
+    } 
+    
+
+    // fetch('./data/photographers.json')
+    //     .then(response => response.json())
+    //     .then(data => {
+    //         const mediaSection = document.querySelector('.media-photographer');
+
+    //         data.media.forEach(media => {
+    //             const mediaModel = pageMediaTemplate(media);
+    //             const mediaCardDOM = mediaModel.getModelCardDOM();
+    //             mediaSection.appendChild(mediaCardDOM);
+    //         });
+    //     })
+    //     .catch(error => {
+    //         console.error('Une erreur s\'est produite lors du chargement du fichier JSON :', error);
+    //     });
+
+        
   
 }
 
