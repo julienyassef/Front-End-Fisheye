@@ -5,8 +5,7 @@ const pagePhotographerTemplate = (data) => {
 
     const getUserCardDOM = () => {
 
-        const photographHeader = document.querySelector ('.photograph-header')
-       
+        
         const photographHeaderInfo = document.createElement( 'div' );
             photographHeaderInfo.classList.add('photograph-header__info')
 
@@ -35,11 +34,14 @@ const pagePhotographerTemplate = (data) => {
             img.classList.add('photograph-header__photo-photographer')
         
         
-        photographHeader.appendChild(photographHeaderInfo)
+      
             photographHeaderInfo.appendChild(h1)
             photographHeaderInfo.appendChild(photographHeaderInfoContent)
-             photographHeaderInfoContent.appendChild(pLocality)
-             photographHeaderInfoContent.appendChild(pTagline)
+            photographHeaderInfoContent.appendChild(pLocality)
+            photographHeaderInfoContent.appendChild(pTagline)
+
+
+            photographHeaderInfo.appendChild(img)
        
            
 

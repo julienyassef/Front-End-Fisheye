@@ -27,28 +27,23 @@ const getPhotographer = async () => {
     // trouver dans data tout ce qui est en relation avec le photographerId
     // boucler sur data.photographer
     // boucler sur data.medias
+
+    // Trouve le photographe dont l'ID correspond à celui dans l'URL
     const photographerDetail = photographers.find(photographer => photographer.id == photographerId)
-    // display header(photographerDetail) <== factory
-    displayData(photographers);
-}
 
-// function qui affiche les donnés des photographes dans le DOM
-const displayData = async(photographers) => {
-    // sélection une div en html pour mettre le tableau
-    const photographersSection = document.querySelector(".photograph-header");
-    console.log(photographersSection)
-
-    // parcourt chaque photographe dans le tableau des donnés
-    photographers.forEach((photographer) => {
-        // Utilise un modèle de card pour créer une card pour chaque photographe.
-        const photographerModel = pagePhotographerTemplate(photographer);
-        // Obtient le contenu DOM de la card  à partir du modèle créé dans l'autre fichier js.
-        // console.log(photographerModel)
+    if (photographerDetail) {
+        // Utilise la card créé pour la page
+        const photographerModel = pagePhotographerTemplate(photographerDetail);
+        // Obtient le contenu DOM de la card créé
         const userCardDOM = photographerModel.getUserCardDOM();
-        console.log(userCardDOM)
-        //ajout la carte dans le DOM
+
+        // Sélectionne une div en HTML pour mettre la card
+        const photographersSection = document.querySelector(".photograph-header");
+
+        // Ajoute la carte au DOM
         photographersSection.appendChild(userCardDOM);
-    });
+    }
+  
 }
 
 getPhotographer()
