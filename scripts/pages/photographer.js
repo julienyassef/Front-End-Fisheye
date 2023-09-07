@@ -1,3 +1,4 @@
+import pagePhotographerTemplate from '../templates/page-photographer.js'
 import { getPhotographers } from "../utils/getData.js"
 //Mettre le code JavaScript lié à la page photographer.html
 
@@ -28,26 +29,26 @@ const getPhotographer = async () => {
     // boucler sur data.medias
     const photographerDetail = photographers.find(photographer => photographer.id == photographerId)
     // display header(photographerDetail) <== factory
-    
+    displayData(photographers);
 }
 
-// // function qui affiche les donnés des photographes dans le DOM
-// const displayData = async(photographers) => {
-//     // sélection une div en html pour mettre le tableau
-//     const photographersSection = document.querySelector(".photographer_section");
-//     console.log(photographersSection)
+// function qui affiche les donnés des photographes dans le DOM
+const displayData = async(photographers) => {
+    // sélection une div en html pour mettre le tableau
+    const photographersSection = document.querySelector(".photograph-header");
+    console.log(photographersSection)
 
-//     // parcourt chaque photographe dans le tableau des donnés
-//     photographers.forEach((photographer) => {
-//         // Utilise un modèle de card pour créer une card pour chaque photographe.
-//         const photographerModel = photographerTemplate(photographer);
-//         // Obtient le contenu DOM de la card  à partir du modèle créé dans l'autre fichier js.
-//         // console.log(photographerModel)
-//         const userCardDOM = photographerModel.getUserCardDOM();
-//         // console.log(userCardDOM)
-//         //ajout la carte dans le DOM
-//         photographersSection.appendChild(userCardDOM);
-//     });
-// }
+    // parcourt chaque photographe dans le tableau des donnés
+    photographers.forEach((photographer) => {
+        // Utilise un modèle de card pour créer une card pour chaque photographe.
+        const photographerModel = pagePhotographerTemplate(photographer);
+        // Obtient le contenu DOM de la card  à partir du modèle créé dans l'autre fichier js.
+        // console.log(photographerModel)
+        const userCardDOM = photographerModel.getUserCardDOM();
+        console.log(userCardDOM)
+        //ajout la carte dans le DOM
+        photographersSection.appendChild(userCardDOM);
+    });
+}
 
 getPhotographer()
