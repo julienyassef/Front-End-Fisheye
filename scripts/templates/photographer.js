@@ -10,7 +10,7 @@ const photographerTemplate = (data) => {
     // création partie link clicable avec photo et nom
         const linkPagePhotographer = document.createElement( 'a' );
             linkPagePhotographer.classList.add('card-photographer__link')
-            linkPagePhotographer.href = `./photographer.html?id=${id}`; //voir pour mettre le lien de la page photographe
+            linkPagePhotographer.href = `./photographer.html?id=${id}`; 
 
         const img = document.createElement( 'img' );
             img.src = picture;
