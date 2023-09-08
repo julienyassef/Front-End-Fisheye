@@ -59,19 +59,23 @@ const getModelCardDOM = () => {
         descriptionCard.classList.add('media-photographer__card__content__description')
 
     const likeCard= document.createElement ('div')
-        likeCard.textContent = `${likes}`;
         likeCard.classList.add('media-photographer__card__content__like')
+
+    const nbrLikeCard= document.createElement ('div')
+        nbrLikeCard.textContent = `${likes}`;
+        nbrLikeCard.classList.add('media-photographer__card__content__like__nbr')
 
     const heartCard = document.createElement('img');
         heartCard.src = 'assets/icons/heart.svg'; 
         heartCard.alt = "Heart Icon";
-        heartCard.classList.add('media-photographer__card__content__heart');
+        heartCard.classList.add('media-photographer__card__content__like__heart');
         
     
     mediaCard.appendChild(contentCardMedia)
         contentCardMedia.appendChild(descriptionCard)
         contentCardMedia.appendChild(likeCard)
-        contentCardMedia.appendChild(heartCard)
+        likeCard.appendChild(nbrLikeCard)
+        likeCard.appendChild(heartCard)
 
 
     return mediaCard;
