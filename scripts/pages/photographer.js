@@ -24,8 +24,8 @@ const getPhotographer = async () => {
     const photographers = data.photographers
     const medias = data.media
 
-    console.log(photographers)
-    console.log(medias)
+    // console.log(photographers)
+    // console.log(medias)
 
     // Trouve le photographe dont l'ID correspond à celui dans l'URL
     const photographerDetail = photographers.find(photographer => photographer.id == photographerId)
@@ -45,13 +45,47 @@ const getPhotographer = async () => {
         const mediaSection = document.querySelector('.media-photographer');
         const mediaOfPhotographer = medias.filter(media => media.photographerId == photographerId);
 
+        const windowCount =  document.createElement ('div')  
+            windowCount.classList.add('media-photographer__window-count')
+        
         mediaOfPhotographer.forEach(media => {
             const mediaModel = pageMediaTemplate(media);
             const mediaCardDOM = mediaModel.getModelCardDOM();
             mediaSection.appendChild(mediaCardDOM);
+            mediaSection.appendChild(windowCount);
+
         });
+        
+        const likeWindowCount= document.createElement ('div');
+                likeWindowCount.classList.add('media-photographer__window-count__like');
+    
+        const nbrLikeWindowCount= document.createElement ('div');
+            nbrLikeWindowCount.textContent = `15`;
+            nbrLikeWindowCount.classList.add('media-photographer__window-count__like__nbr');
+            // nbrLikeWindowCount.setAttribute('aria-label', `${likes} de like de la ${mediaSource}: ${title}`);
+            
+        const heartWindowCount = document.createElement('img');
+            heartWindowCount.src = 'assets/icons/heartblack.svg'; 
+            heartWindowCount.alt = "Heart Icon";
+            heartWindowCount.classList.add('media-photographer__window-count__like__heart');
+            heartWindowCount.setAttribute ('aria-label', 'icon coeur');
+    
+
+        const { name, portrait, city, country, tagline, price, id } = data;
+
+        const priceDay= document.createElement ('div');
+            priceDay.textContent = `${price}€ / jour`;
+            priceDay.classList.add('media-photographer__window-count__price');
+            priceDay.setAttribute ('aria-label', `${price}€ / jour`);
+
+            windowCount.appendChild(likeWindowCount);
+                likeWindowCount.appendChild(nbrLikeWindowCount)
+                likeWindowCount.appendChild(heartWindowCount)
+                windowCount.appendChild(priceDay);
     } 
     
+
+
 
     // fetch('./data/photographers.json')
     //     .then(response => response.json())

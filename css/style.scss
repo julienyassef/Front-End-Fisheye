@@ -31,7 +31,6 @@ h1 {
     margin-top: 50px;
     align-items: center;
     justify-items: center;
-
     &__profil {
         height: auto;
         width: auto;  
@@ -60,9 +59,6 @@ h1 {
             }
         }
     }
-    &__contact_button{
-        
-    }
     &__photo {
         height: 200px;
         width: 200px;
@@ -76,26 +72,86 @@ h1 {
 .media-photographer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 70px;
-    margin-top: 50px;
-    align-items: center;
-    justify-items: center;
+    gap: 50px;
+    margin: 50px 100px 0px 100px;
+    &__window-count {
+        background-color: #DB8876;
+        width: 300px;
+        height: 40px;
+        position: fixed;
+        bottom: 0;
+        right: 50px;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        padding: 10px 15px;
+        &__like {
+            display: flex;
+            flex-direction: row;
+            gap: 2px;
+            &__nbr{
+                color: black;
+                text-align: right;
+                font-size: 20px;
+                font-weight: 500; 
+                margin-top: 7px;
+            }
+            &__heart{
+                width: 25px;
+            }
+        }
+        &__price{
+            margin-top: 7px;
+            font-size: 20px;
+        }
+    }
     &__card {
+        height: 300px;
+        width: 350px;
+        margin-bottom: 50px;
         &__img {
             height: 300px;
             width: 350px;
-            // flex-shrink: 1;
+            object-fit: cover;
+            object-position: center center;
+        }
+        &__video {
+            height: 300px;
+            width: 350px;
+            object-fit: cover;
+            object-position: center center;
     
         }
         &__content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 20px;
             &__description {
-            
+                color: #901C1C;
+                font-size: 24px;
+                font-weight: 400;  
+                margin: 10px 0 ; 
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                overflow: hidden;
             }
             &__like {
-            
+                display: flex;
+                flex-direction: row;
+                gap: 5px;
+                &__nbr{
+                    color: #901C1C;
+                    text-align: right;
+                    font-size: 24px;
+                    font-weight: 500;
+                    margin-top: 10px; 
+                }
             }
-        }
+            
+        } 
     }
+    
 
 }
 
