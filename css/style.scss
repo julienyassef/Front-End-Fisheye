@@ -74,6 +74,37 @@ h1 {
     grid-template-columns: 1fr 1fr 1fr;
     gap: 50px;
     margin: 50px 100px 0px 100px;
+    &__window-count {
+        background-color: #DB8876;
+        width: 300px;
+        height: 40px;
+        position: fixed;
+        bottom: 0;
+        right: 50px;
+        justify-content: space-between;
+        display: flex;
+        flex-direction: row;
+        padding: 10px 15px;
+        &__like {
+            display: flex;
+            flex-direction: row;
+            gap: 2px;
+            &__nbr{
+                color: black;
+                text-align: right;
+                font-size: 20px;
+                font-weight: 500; 
+                margin-top: 7px;
+            }
+            &__heart{
+                width: 25px;
+            }
+        }
+        &__price{
+            margin-top: 7px;
+            font-size: 20px;
+        }
+    }
     &__card {
         height: 300px;
         width: 350px;
@@ -114,13 +145,13 @@ h1 {
                     text-align: right;
                     font-size: 24px;
                     font-weight: 500;
-                    margin-top: 10px;
-                    
+                    margin-top: 10px; 
                 }
             }
             
-        }
+        } 
     }
+    
 
 }
 

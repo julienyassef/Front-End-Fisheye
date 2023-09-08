@@ -72,6 +72,37 @@ h1 {
   gap: 50px;
   margin: 50px 100px 0px 100px;
 }
+.media-photographer__window-count {
+  background-color: #DB8876;
+  width: 300px;
+  height: 40px;
+  position: fixed;
+  bottom: 0;
+  right: 50px;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  padding: 10px 15px;
+}
+.media-photographer__window-count__like {
+  display: flex;
+  flex-direction: row;
+  gap: 2px;
+}
+.media-photographer__window-count__like__nbr {
+  color: black;
+  text-align: right;
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 7px;
+}
+.media-photographer__window-count__like__heart {
+  width: 25px;
+}
+.media-photographer__window-count__price {
+  margin-top: 7px;
+  font-size: 20px;
+}
 .media-photographer__card {
   height: 300px;
   width: 350px;

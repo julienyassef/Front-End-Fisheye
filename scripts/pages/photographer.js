@@ -45,13 +45,44 @@ const getPhotographer = async () => {
         const mediaSection = document.querySelector('.media-photographer');
         const mediaOfPhotographer = medias.filter(media => media.photographerId == photographerId);
 
+        const windowCount =  document.createElement ('div')  
+            windowCount.classList.add('media-photographer__window-count')
+        
         mediaOfPhotographer.forEach(media => {
             const mediaModel = pageMediaTemplate(media);
             const mediaCardDOM = mediaModel.getModelCardDOM();
             mediaSection.appendChild(mediaCardDOM);
+            mediaSection.appendChild(windowCount);
+
         });
+        
+        const likeWindowCount= document.createElement ('div');
+                likeWindowCount.classList.add('media-photographer__window-count__like');
+    
+        const nbrLikeWindowCount= document.createElement ('div');
+            nbrLikeWindowCount.textContent = `15`;
+            nbrLikeWindowCount.classList.add('media-photographer__window-count__like__nbr');
+            
+        const heartWindowCount = document.createElement('img');
+            heartWindowCount.src = 'assets/icons/heartblack.svg'; 
+            heartWindowCount.alt = "Heart Icon";
+            heartWindowCount.classList.add('media-photographer__window-count__like__heart');
+    
+
+        const { name, portrait, city, country, tagline, price, id } = data;
+
+        const priceDay= document.createElement ('div');
+            priceDay.textContent = `${price}€ / jour`;
+            priceDay.classList.add('media-photographer__window-count__price');
+
+            windowCount.appendChild(likeWindowCount);
+                likeWindowCount.appendChild(nbrLikeWindowCount)
+                likeWindowCount.appendChild(heartWindowCount)
+                windowCount.appendChild(priceDay);
     } 
     
+
+
 
     // fetch('./data/photographers.json')
     //     .then(response => response.json())
