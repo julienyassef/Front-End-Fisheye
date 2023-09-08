@@ -77,4 +77,16 @@ h1 {
 .media-photographer__card__img {
   height: 300px;
   width: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
+}
+.media-photographer__card__video {
+  height: 300px;
+  width: 350px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center center;
+     object-position: center center;
 }/*# sourceMappingURL=style.css.map */

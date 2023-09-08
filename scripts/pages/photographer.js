@@ -24,8 +24,8 @@ const getPhotographer = async () => {
     const photographers = data.photographers
     const medias = data.media
 
-    console.log(photographers)
-    console.log(medias)
+    // console.log(photographers)
+    // console.log(medias)
 
     // Trouve le photographe dont l'ID correspond à celui dans l'URL
     const photographerDetail = photographers.find(photographer => photographer.id == photographerId)

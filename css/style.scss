@@ -84,7 +84,15 @@ h1 {
         &__img {
             height: 300px;
             width: 350px;
-            // flex-shrink: 1;
+            object-fit: cover;
+            object-position: center center;
+    
+        }
+        &__video {
+            height: 300px;
+            width: 350px;
+            object-fit: cover;
+            object-position: center center;
     
         }
         &__content {
