@@ -64,11 +64,13 @@ const getModelCardDOM = () => {
     const nbrLikeCard= document.createElement ('div');
         nbrLikeCard.textContent = `${likes}`;
         nbrLikeCard.classList.add('media-photographer__card__content__like__nbr');
+        nbrLikeCard.setAttribute('aria-label', `${likes} de like de la ${mediaSource}: ${title}` );
 
     const heartCard = document.createElement('img');
         heartCard.src = 'assets/icons/heart.svg'; 
         heartCard.alt = "Heart Icon";
         heartCard.classList.add('media-photographer__card__content__like__heart');
+        heartCard.setAttribute ('aria-label', 'icon coeur');
       
      
     
