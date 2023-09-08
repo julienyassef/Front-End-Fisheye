@@ -35,11 +35,8 @@ const getModelCardDOM = () => {
     const mediaCard = document.createElement('article');
         mediaCard.classList.add('media-photographer__card');
 
-
-        let img = null;
-
         if (mediaType === "image") {
-            img = document.createElement('img');
+            const img = document.createElement('img');
             img.src = mediaSource;
             img.alt = title;
             img.classList.add('media-photographer__card__img');
@@ -62,15 +59,19 @@ const getModelCardDOM = () => {
         descriptionCard.classList.add('media-photographer__card__content__description')
 
     const likeCard= document.createElement ('div')
-        likeCard.textContent = `${likes} Likes`;
+        likeCard.textContent = `${likes}`;
         likeCard.classList.add('media-photographer__card__content__like')
 
+    const heartCard = document.createElement('img');
+        heartCard.src = 'assets/icons/heart.svg'; 
+        heartCard.alt = "Heart Icon";
+        heartCard.classList.add('media-photographer__card__content__heart');
         
     
     mediaCard.appendChild(contentCardMedia)
         contentCardMedia.appendChild(descriptionCard)
         contentCardMedia.appendChild(likeCard)
-
+        contentCardMedia.appendChild(heartCard)
 
 
     return mediaCard;

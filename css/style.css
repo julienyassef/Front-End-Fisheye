@@ -69,10 +69,8 @@ h1 {
 .media-photographer {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  gap: 70px;
-  margin-top: 50px;
-  align-items: center;
-  justify-items: center;
+  gap: 50px;
+  margin: 50px 100px 0px 100px;
 }
 .media-photographer__card__img {
   height: 300px;
@@ -89,4 +87,18 @@ h1 {
      object-fit: cover;
   -o-object-position: center center;
      object-position: center center;
+}
+.media-photographer__card__content {
+  display: flex;
+  flex-direction: row;
+}
+.media-photographer__card__content__description {
+  color: #901C1C;
+  font-size: 24px;
+  font-weight: 400;
+}
+.media-photographer__card__content__like {
+  color: #000;
+  font-size: 16px;
+  font-weight: 400;
 }/*# sourceMappingURL=style.css.map */
