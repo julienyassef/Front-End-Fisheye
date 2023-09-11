@@ -1,3 +1,7 @@
+// =====================
+//     Create element
+// ===================
+
 
 
 // =====================
@@ -5,7 +9,6 @@
 // ===================
 const modal = document.getElementById("contact_modal");
 const form = document.querySelector(".modal__form");
-
 const inputFirst = document.querySelector("#first");
 const inputLast = document.querySelector("#last");
 const inputEmail = document.querySelector("#email");
@@ -55,7 +58,8 @@ const displayModal = () => {
     RESULTS.last = inputLast.value;
     RESULTS.email = inputEmail.value;
     RESULTS.message = inputMessage.value;
-  
+
+    console.log(RESULTS)
 
    // reset le formulaire 
     resetForm();
@@ -74,4 +78,4 @@ document.querySelector(".contact_button").addEventListener("click", displayModal
  
 form.addEventListener("submit", submit);
 
-console.log(RESULTS)
+

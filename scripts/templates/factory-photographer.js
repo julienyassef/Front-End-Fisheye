@@ -42,7 +42,6 @@ const pagePhotographerTemplate = (data) => {
             img.classList.add('photograph-header__photo')
         
         
-      
             photographHeader.appendChild(photographHeaderProfil)
                 photographHeaderProfil.appendChild(h1)
                 photographHeaderProfil.appendChild(profilContent)
@@ -50,12 +49,10 @@ const pagePhotographerTemplate = (data) => {
                     profilContent.appendChild(pTagline)
             photographHeader.appendChild(contactButton);
             photographHeader.appendChild(img)
-       
-           
+
 
         return (photographHeader);
     }
-
 
     return { name, picture, city, country, tagline, price, getUserCardDOM }
 }
