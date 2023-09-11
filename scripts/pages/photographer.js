@@ -55,6 +55,8 @@ const getPhotographer = async () => {
             mediaSection.appendChild(windowCount);
 
         });
+
+        // fenetre compteur like et prix journalier
         
         const likeWindowCount= document.createElement ('div');
                 likeWindowCount.classList.add('media-photographer__window-count__like');
