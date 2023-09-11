@@ -3,6 +3,8 @@ import pagePhotographerTemplate from '../templates/factory-photographer.js'
 import pageMediaTemplate from '../templates/factory-media.js'
 import { getPhotographers } from "../utils/getData.js"
 import  getCardWindowCount from '../utils/windowCount.js'
+import { displayModal, closeModal } from '../utils/contactForm.js'
+
 
 
 
@@ -48,11 +50,14 @@ const getPhotographer = async () => {
 
           photographersSection.appendChild(userCardDOM);
 
-        const windowCountElements = getCardWindowCount([photographerDetail]);
-            photographersSection.appendChild(windowCountElements[0]);   
-        
+          // import la card windowcount
 
+        const windowCountElements = getCardWindowCount([photographerDetail]);
+            photographersSection.appendChild(windowCountElements[0]);  
+            
+    
         const mediaSection = document.querySelector('.media-photographer');
+
         // Filtrer les médias du photographe actuel 
         const mediaOfPhotographer = medias.filter(media => media.photographerId == photographerId);
 
@@ -67,6 +72,20 @@ const getPhotographer = async () => {
      
             
         });
+
+        // =====================
+        //      modal modif 
+        // =====================
+
+        
+         const name = photographerDetail.name; 
+
+         // Ajout le nom à la modale
+         const nameModal = document.querySelector(".modal__name");
+         const createH3Modal = document.createElement("h3");
+         createH3Modal.textContent = name;
+         createH3Modal.classList.add("modal__name__photographer");
+         nameModal.appendChild(createH3Modal);
         
     }
     

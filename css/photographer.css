@@ -39,25 +39,33 @@
   width: 50%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   padding: 35px;
   margin: auto;
 }
-
-.modal header {
+.modal__header {
+  display: flex;
   justify-content: space-between;
   width: 100%;
 }
-
-.modal header img {
-  cursor: pointer;
-}
-
-.modal header h2 {
+.modal__header__title {
+  margin: 0;
   font-size: 64px;
   font-weight: normal;
-  text-align: center;
+}
+.modal__header__cross-close {
+  cursor: pointer;
+}
+.modal__name {
+  display: flex;
+  align-items: center;
+}
+.modal__name__photographer {
+  margin: 0;
+  font-size: 64px;
+  font-weight: normal;
+  margin-bottom: 30px;
 }
 
 .modal__form__message textarea {

@@ -1,3 +1,9 @@
+// Dans factory-photographer.js
+import { displayModal } from '../utils/contactForm.js';
+
+// Le reste de votre code...
+
+
 const pagePhotographerTemplate = (data) => {
     const { name, portrait, city, country, tagline, price, id } = data;
 

@@ -1,6 +1,5 @@
-// =====================
-//     Create element
-// ===================
+import { getPhotographers } from "../utils/getData.js"
+
 
 
 
@@ -79,3 +78,4 @@ document.querySelector(".contact_button").addEventListener("click", displayModal
 form.addEventListener("submit", submit);
 
 
+export { displayModal, closeModal};
