@@ -91,8 +91,21 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: white;
   z-index: 10;
+  overflow: auto;
+  animation: lightboxIn 0.5s;
+}
+.lightbox__close {
+  border: none;
+  background: url(../assets/icons/crosslightbox.svg) center center/72px 72px no-repeat;
+  width: 72px;
+  height: 72px;
+  position: fixed;
+  margin: 15px;
+  right: 0;
+  z-index: 12;
+  text-indent: -30000px;
 }
 .lightbox__next, .lightbox__prev {
   border: none;
@@ -105,22 +118,36 @@
   margin-top: -48px;
   z-index: 11;
   text-indent: -30000px;
-  opacity: 0.5;
-  transition: 0.3s;
+}
+.lightbox button {
   cursor: pointer;
 }
 .lightbox__prev {
   left: 0;
   rotate: 180deg;
 }
-.lightbox__next:hover, .lightbox__prev:hover {
-  opacity: 1;
+.lightbox__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 96px;
+  margin-right: 96px;
 }
 .lightbox__container__img {
-  width: 100%;
-  height: 100%;
+  max-width: 100%;
+  height: auto;
+  min-height: 100vh;
+  animation: lightboxIn 0.5s;
 }
 
+@keyframes lightboxIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 form {
   display: flex;
   width: 100%;

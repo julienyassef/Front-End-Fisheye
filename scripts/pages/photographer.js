@@ -31,6 +31,7 @@ const getID = () => {
 
 }
 
+
 const getPhotographer = async () => {
     //permet d'utiliser l'ID récupéré dans l'URL dans la function en dynamique
     const photographerId = getID();
@@ -74,20 +75,21 @@ const getPhotographer = async () => {
         // Filtrer les médias du photographe actuel 
         const mediaOfPhotographer = medias.filter(media => media.photographerId == photographerId);
 
-
-        const firstImage = mediaOfPhotographer.find(media => media.image);
+       
+        
+        // const firstImage = mediaOfPhotographer.find(media => media.image);
 
         
-        const photographerName = namePhotographer[photographerId];
+        // const photographerName = namePhotographer[photographerId];
        
 
-        // Vérifiez si une première image a été trouvée
-        if (firstImage) {
-        const lightboxImage = document.querySelector('.lightbox__container img');
-        lightboxImage.src = `Sample Photos/${photographerName}/${firstImage.image}`;
-        lightboxImage.alt = firstImage.title;
-        lightboxImage.classList.add("lightbox__container__img")
-        }
+        // // Vérifiez si une première image a été trouvée
+        // if (firstImage) {
+        // const lightboxImage = document.querySelector('.lightbox__container img');
+        // lightboxImage.src = `Sample Photos/${photographerName}/${firstImage.image}`;
+        // lightboxImage.alt = firstImage.title;
+        // lightboxImage.classList.add("lightbox__container__img")
+        // }
       
 
         // Pour chaque média du photographe actuel :
@@ -120,5 +122,11 @@ const getPhotographer = async () => {
 }
 
 getPhotographer()
+
+
+
+
+
+
 
 
