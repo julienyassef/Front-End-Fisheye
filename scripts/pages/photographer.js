@@ -73,9 +73,9 @@ const getPhotographer = async () => {
             
         });
 
-        // =====================
-        //      modal modif 
-        // =====================
+        // =======================================
+        //      modal ajout name photographer
+        // =======================================
 
         
          const name = photographerDetail.name; 
@@ -85,6 +85,7 @@ const getPhotographer = async () => {
          const createH3Modal = document.createElement("h3");
          createH3Modal.textContent = name;
          createH3Modal.classList.add("modal__name__photographer");
+         createH3Modal.setAttribute ('aria-label', 'nom du photographe: ${name}');
          nameModal.appendChild(createH3Modal);
         
     }

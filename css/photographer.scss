@@ -33,8 +33,19 @@
     cursor: pointer;
 }
 
+.display {
+    display: block;
+  }
+
+
 .modal {
-    border-radius: 5px;
+    // position: fixed; 
+    // top: 50%;
+    // left: 50%;
+    // transform: translate(-50%, -50%);
+    // z-index: 1001;
+    // border-radius: 5px;
+
     background-color: #DB8876;
     width: 50%;
     display: flex;

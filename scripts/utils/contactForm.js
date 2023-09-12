@@ -32,11 +32,11 @@ const RESULTS = {
 
 // function launch modal form
 const displayModal = () => {
-    modal.style.display = "block";
+  modal.classList.add('display')
   };
   // function close modal event
   const closeModal = () => {
-    modal.style.display = "none";
+    modal.classList.remove('display')
   };
 
   //function de réinitialisation des champs
@@ -76,6 +76,11 @@ document.querySelector(".contact_button").addEventListener("click", displayModal
 
  
 form.addEventListener("submit", submit);
+
+
+
+
+
 
 
 export { displayModal, closeModal};
