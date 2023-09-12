@@ -3,16 +3,16 @@
 class Lightbox {
     static init() {
         document.addEventListener('DOMContentLoaded', () => {
-            const firstImage = mediaOfPhotographer.find(media => media.image);
-            const photographerName = namePhotographer[photographerId];
+            // const firstImage = mediaOfPhotographer.find(media => media.image);
+            // const photographerName = namePhotographer[photographerId];
 
-            // Vérifiez si une première image a été trouvée
-            if (firstImage) {
-                const lightboxImage = document.querySelector('.lightbox__container img');
-                lightboxImage.src = `Sample Photos/${photographerName}/${firstImage.image}`;
-                lightboxImage.alt = firstImage.title;
-                lightboxImage.classList.add("lightbox__container__img");
-            }
+            // // Vérifiez si une première image a été trouvée
+            // if (firstImage) {
+            //     const lightboxImage = document.querySelector('.lightbox__container img');
+            //     lightboxImage.src = `Sample Photos/${photographerName}/${firstImage.image}`;
+            //     lightboxImage.alt = firstImage.title;
+            //     lightboxImage.classList.add("lightbox__container__img");
+            // }
 
             const links = document.querySelectorAll('a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"], a[href$=".mp4"]');
             links.forEach(link => link.addEventListener('click', e => {

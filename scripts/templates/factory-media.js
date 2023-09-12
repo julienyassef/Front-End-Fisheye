@@ -34,13 +34,17 @@ const getModelCardDOM = () => {
     const mediaCard = document.createElement('article');
         mediaCard.classList.add('media-photographer__card');
 
+    const linkMediaCard = document.createElement('a');
+        linkMediaCard.classList.add('media-photographer__a');
+        linkMediaCard.href = '#'
+
         if (mediaType === "image") {
             const img = document.createElement('img');
             img.src = mediaSource;
             img.alt = title;
             img.classList.add('media-photographer__card__img');
             img.setAttribute('alt', `photo de : ${title}`);
-            mediaCard.appendChild(img);
+            linkMediaCard.appendChild(img);
         } else if (mediaType === "video") {
             const video = document.createElement('video');
             video.src = mediaSource;
@@ -48,7 +52,7 @@ const getModelCardDOM = () => {
             video.type = "video/mp4";
             video.classList.add('media-photographer__card__video');
             video.setAttribute('alt', `vidéo de : ${title}`);
-            mediaCard.appendChild(video);
+            linkMediaCard.appendChild(video);
         }
 
     const contentCardMedia = document.createElement ('div');
@@ -75,6 +79,7 @@ const getModelCardDOM = () => {
      
     
     mediaCard.appendChild(contentCardMedia);
+    mediaCard.appendChild(linkMediaCard)
         contentCardMedia.appendChild(descriptionCard);
         contentCardMedia.appendChild(likeCard);
         likeCard.appendChild(nbrLikeCard);
