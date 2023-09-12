@@ -24,7 +24,6 @@ const RESULTS = {
     message: ''
   }
 
-
 // =====================
 //     FUNCTIONS
 //   (définitions)
@@ -32,11 +31,11 @@ const RESULTS = {
 
 // function launch modal form
 const displayModal = () => {
-  modal.classList.add('display')
+  modal.style.display = 'block';
   };
   // function close modal event
   const closeModal = () => {
-    modal.classList.remove('display')
+    modal.style.display = "none";
   };
 
   //function de réinitialisation des champs
