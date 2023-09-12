@@ -1,7 +1,3 @@
-#contact_modal {
-  display: none;
-}
-
 .photograph-header {
   background-color: #FAFAFA;
   height: 300px;
@@ -87,6 +83,42 @@
 .modal__form__message textarea {
   width: 100%;
   height: 170px;
+}
+
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 10;
+}
+.lightbox__next, .lightbox__prev {
+  border: none;
+  background: url(../assets/icons/arrowlightbox.svg) center center/96px 96px no-repeat;
+  width: 96px;
+  height: 96px;
+  position: fixed;
+  top: 50%;
+  right: 0;
+  margin-top: -48px;
+  z-index: 11;
+  text-indent: -30000px;
+  opacity: 0.5;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.lightbox__prev {
+  left: 0;
+  rotate: 180deg;
+}
+.lightbox__next:hover, .lightbox__prev:hover {
+  opacity: 1;
+}
+.lightbox__container__img {
+  width: 100%;
+  height: 100%;
 }
 
 form {

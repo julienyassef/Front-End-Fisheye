@@ -86,6 +86,7 @@ const getPhotographer = async () => {
         const lightboxImage = document.querySelector('.lightbox__container img');
         lightboxImage.src = `Sample Photos/${photographerName}/${firstImage.image}`;
         lightboxImage.alt = firstImage.title;
+        lightboxImage.classList.add("lightbox__container__img")
         }
       
 
