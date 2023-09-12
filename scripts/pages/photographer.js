@@ -6,6 +6,15 @@ import  getCardWindowCount from '../utils/windowCount.js'
 import { displayModal, closeModal } from '../utils/contactForm.js'
 
 
+// objet pour définir les noms des photoraphes par rapport à l'ID
+const namePhotographer = {
+        82 : "Tracy",
+        195 : "Marcel",
+        243 : "Mimi",
+        527 : "Nabeel",
+        925 : "Rhode",
+        930 : "Ellie Rose"
+    };
 
 
 // permet de récupérer l'ID du photographe sur l'url de la page 
@@ -17,6 +26,9 @@ const getID = () => {
      // récupère la valeurt de l''id' de l'URL
     const id = params.get('id')
     return id
+
+    
+
 }
 
 const getPhotographer = async () => {
@@ -31,6 +43,8 @@ const getPhotographer = async () => {
     // console.log(medias)
 
 
+ 
+
 
     // Trouve le photographe dont l'ID correspond à celui dans l'URL
     const photographerDetail = photographers.find(photographer => photographer.id == photographerId)
@@ -41,7 +55,6 @@ const getPhotographer = async () => {
         const photographerModel = pagePhotographerTemplate(photographerDetail);
         // Obtient le contenu DOM de la card créé
         const userCardDOM = photographerModel.getUserCardDOM();
-;
 
         // Sélectionne une div en HTML pour mettre la card
         const photographersSection = document.querySelector(".header-profil");
@@ -61,6 +74,19 @@ const getPhotographer = async () => {
         // Filtrer les médias du photographe actuel 
         const mediaOfPhotographer = medias.filter(media => media.photographerId == photographerId);
 
+
+        const firstImage = mediaOfPhotographer.find(media => media.image);
+
+        
+        const photographerName = namePhotographer[photographerId];
+       
+
+        // Vérifiez si une première image a été trouvée
+        if (firstImage) {
+        const lightboxImage = document.querySelector('.lightbox__container img');
+        lightboxImage.src = `Sample Photos/${photographerName}/${firstImage.image}`;
+        lightboxImage.alt = firstImage.title;
+        }
       
 
         // Pour chaque média du photographe actuel :
@@ -93,6 +119,5 @@ const getPhotographer = async () => {
 }
 
 getPhotographer()
-
 
 
