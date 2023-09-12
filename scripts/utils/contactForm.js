@@ -12,6 +12,7 @@ const inputFirst = document.querySelector("#first");
 const inputLast = document.querySelector("#last");
 const inputEmail = document.querySelector("#email");
 const inputMessage = document.querySelector("#message");
+const cross = document.querySelector(".modal__header__cross-close");
 
 
 // =====================
@@ -72,7 +73,7 @@ const displayModal = () => {
 
 
 document.querySelector(".contact_button").addEventListener("click", displayModal);
-
+cross.addEventListener('click', closeModal)
  
 form.addEventListener("submit", submit);
 

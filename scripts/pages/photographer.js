@@ -3,22 +3,10 @@ import pagePhotographerTemplate from '../templates/factory-photographer.js'
 import pageMediaTemplate from '../templates/factory-media.js'
 import { getPhotographers } from "../utils/getData.js"
 import  getCardWindowCount from '../utils/windowCount.js'
-import { displayModal, closeModal } from '../utils/contactForm.js'
-
-
-// objet pour définir les noms des photoraphes par rapport à l'ID
-const namePhotographer = {
-        82 : "Tracy",
-        195 : "Marcel",
-        243 : "Mimi",
-        527 : "Nabeel",
-        925 : "Rhode",
-        930 : "Ellie Rose"
-    };
-
+import { displayModal } from '../utils/contactForm.js'
 
 // permet de récupérer l'ID du photographe sur l'url de la page 
-const getID = () => {
+export const getID = () => {
     // Création de const URL à partir de l'URL de la fenêtre du navigateur
     const url = new URL(window.location.href)
     // Extraction des paramètres de recherche de l'URL
@@ -26,9 +14,6 @@ const getID = () => {
      // récupère la valeurt de l''id' de l'URL
     const id = params.get('id')
     return id
-
-    
-
 }
 
 
@@ -39,13 +24,6 @@ const getPhotographer = async () => {
 
     const photographers = data.photographers
     const medias = data.media
-
-    // console.log(photographers)
-    // console.log(medias)
-
-
- 
-
 
     // Trouve le photographe dont l'ID correspond à celui dans l'URL
     const photographerDetail = photographers.find(photographer => photographer.id == photographerId)
@@ -93,14 +71,13 @@ const getPhotographer = async () => {
       
 
         // Pour chaque média du photographe actuel :
-        mediaOfPhotographer.forEach(media => {
-            
-            const mediaModel = pageMediaTemplate(media);
+        // mediaOfPhotographer.forEach(media => {
+            for (let i = 0; i < mediaOfPhotographer.length; i++) {
+            const media = mediaOfPhotographer[i];
+            const mediaModel = await pageMediaTemplate(media);
             const mediaCardDOM = mediaModel.getModelCardDOM();
-            mediaSection.appendChild(mediaCardDOM);
-     
-            
-        });
+            mediaSection.appendChild(mediaCardDOM);   
+        };
 
         // =======================================
         //      modal ajout name photographer
@@ -122,11 +99,3 @@ const getPhotographer = async () => {
 }
 
 getPhotographer()
-
-
-
-
-
-
-
-

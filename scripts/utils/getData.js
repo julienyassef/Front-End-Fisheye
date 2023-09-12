@@ -11,3 +11,10 @@ export const getPhotographers = async () => {
         return { photographers: [] };
     }
 };
+
+export const getPhotographerFromID = async (id) => {
+    const data = await getPhotographers();
+    const photographers = data.photographers;
+    const photographer = photographers.find(photographer => photographer.id == id);
+    return photographer;
+}
