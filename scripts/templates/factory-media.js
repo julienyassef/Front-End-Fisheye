@@ -38,7 +38,7 @@ const pageMediaTemplate = async (data) => {
             img.classList.add('media-photographer__card__img');
             img.setAttribute('alt', `photo de : ${title}`);
             linkMediaCard.appendChild(img);
-            linkMediaCard.href = linkMediaCard.href =  `Sample Photos/${photographerName}/${image}`;
+            linkMediaCard.href = `Sample Photos/${photographerName}/${image}`;
         } else if (mediaType === "video") {
             const video = document.createElement('video');
             video.controls = true;
@@ -48,7 +48,8 @@ const pageMediaTemplate = async (data) => {
             video.classList.add('media-photographer__card__video');
             video.setAttribute('alt', `vidéo de : ${title}`);
             linkMediaCard.appendChild(video);
-            linkMediaCard.href = linkMediaCard.href = `Sample Photos/${photographerName}/${video}`;
+            linkMediaCard.href =`Sample Photos/${photographerName}/${video}`;
+            
             // revoir le probleme de video link
         }
 
@@ -75,7 +76,7 @@ const pageMediaTemplate = async (data) => {
         
         
         mediaCard.appendChild(linkMediaCard)
-            mediaCard.appendChild(contentCardMedia);
+        mediaCard.appendChild(contentCardMedia);
         mediaCard.appendChild(contentCardMedia);
         contentCardMedia.appendChild(descriptionCard);
         contentCardMedia.appendChild(likeCard);

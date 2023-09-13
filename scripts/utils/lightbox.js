@@ -1,31 +1,29 @@
 class Lightbox {
     static init() {
         document.addEventListener('DOMContentLoaded', () => {
+            
            
             const links = document.querySelectorAll('a[href$=".png"], a[href$=".jpg"], a[href$=".jpeg"], a[href$=".mp4"]')
-                .forEach(link => link.addEventListener('click', e => {
-                    e.preventDefault()
-                    new Lightbox(e.currentTarget.getAttribute('href'));
+            console.log('Selected links:', links);
+
+            links.forEach(link => link.addEventListener('click', e => {
+                e.preventDefault()
+                console.log('Image clicked');
+                new Lightbox(e.currentTarget.getAttribute('href'));
             }));
         });
     }
     
-    /**
-     * 
-     * @param {string} url 
-     */
+   
 
     constructor(url) {
         const element = this.buildDOM(url);
         document.body.appendChild(element);
+       
+       
     }
 
 
-     /**
-     * 
-     * @param {string} url 
-     * @return {HTMLElement}
-     */
 
     buildDOM(url) {
         const dom = document.createElement('div');
@@ -34,13 +32,12 @@ class Lightbox {
         <button class="lightbox__next">Suivant</button>
         <button class="lightbox__prev">Précédent</button>
         <div class="lightbox__container">
-          <img src="Sample Photos/Tracy/Fashion Yellow Beach.jpg" alt="">
+          <img src="${url}" alt="">
         </div>`;
         
-        return dom;
+        return dom
     }
 }
 
-// "Sample Photos/Tracy/Fashion Yellow Beach.jpg"
 
 Lightbox.init();
