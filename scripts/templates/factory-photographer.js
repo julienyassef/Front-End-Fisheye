@@ -1,9 +1,6 @@
 // Dans factory-photographer.js
 import { displayModal } from '../utils/contactForm.js';
 
-// Le reste de votre code...
-
-
 const pagePhotographerTemplate = (data) => {
     const { name, portrait, city, country, tagline, price, id } = data;
 
@@ -49,10 +46,10 @@ const pagePhotographerTemplate = (data) => {
         
         
             photographHeader.appendChild(photographHeaderProfil)
-                photographHeaderProfil.appendChild(h1)
-                photographHeaderProfil.appendChild(profilContent)
-                    profilContent.appendChild(pLocality)
-                    profilContent.appendChild(pTagline)
+            photographHeaderProfil.appendChild(h1)
+            photographHeaderProfil.appendChild(profilContent)
+            profilContent.appendChild(pLocality)
+            profilContent.appendChild(pTagline)
             photographHeader.appendChild(contactButton);
             photographHeader.appendChild(img)
 

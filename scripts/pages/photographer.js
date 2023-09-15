@@ -50,28 +50,12 @@ const getPhotographer = async () => {
     
         const mediaSection = document.querySelector('.media-photographer');
 
+        
+
         // Filtrer les médias du photographe actuel 
         const mediaOfPhotographer = medias.filter(media => media.photographerId == photographerId);
 
-       
-        
-        // const firstImage = mediaOfPhotographer.find(media => media.image);
-
-        
-        // const photographerName = namePhotographer[photographerId];
-       
-
-        // // Vérifiez si une première image a été trouvée
-        // if (firstImage) {
-        // const lightboxImage = document.querySelector('.lightbox__container img');
-        // lightboxImage.src = `Sample Photos/${photographerName}/${firstImage.image}`;
-        // lightboxImage.alt = firstImage.title;
-        // lightboxImage.classList.add("lightbox__container__img")
-        // }
-      
-
         // Pour chaque média du photographe actuel :
-        // mediaOfPhotographer.forEach(media => {
             for (let i = 0; i < mediaOfPhotographer.length; i++) {
             const media = mediaOfPhotographer[i];
             const mediaModel = await pageMediaTemplate(media);
@@ -83,7 +67,6 @@ const getPhotographer = async () => {
         //      modal ajout name photographer
         // =======================================
 
-        
          const name = photographerDetail.name; 
 
          // Ajout le nom à la modale
