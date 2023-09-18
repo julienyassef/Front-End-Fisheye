@@ -40,17 +40,15 @@ const pageMediaTemplate = async (data) => {
             linkMediaCard.appendChild(img);
             linkMediaCard.href = `Sample Photos/${photographerName}/${image}`;
         } else if (mediaType === "video") {
-            const video = document.createElement('video');
-            video.controls = true;
-            video.src = mediaSource;
-            video.alt = title;
-            video.type = "video/mp4";
-            video.classList.add('media-photographer__card__video');
-            video.setAttribute('alt', `vidéo de : ${title}`);
-            linkMediaCard.appendChild(video);
+            const videoCard = document.createElement('video');
+            videoCard.controls = true;
+            videoCard.src = mediaSource;
+            videoCard.alt = title;
+            videoCard.type = "video/mp4";
+            videoCard.classList.add('media-photographer__card__video');
+            videoCard.setAttribute('alt', `vidéo de : ${title}`);
+            linkMediaCard.appendChild(videoCard);
             linkMediaCard.href =`Sample Photos/${photographerName}/${video}`;
-            
-            // revoir le probleme de video link
         }
 
         const contentCardMedia = document.createElement ('div');

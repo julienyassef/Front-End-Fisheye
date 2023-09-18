@@ -4,6 +4,7 @@ import pageMediaTemplate from '../templates/factory-media.js'
 import { getPhotographers } from "../utils/getData.js"
 import  getCardWindowCount from '../utils/windowCount.js'
 import { displayModal } from '../utils/contactForm.js'
+import Lightbox from '../utils/lightbox.js'
 
 // permet de récupérer l'ID du photographe sur l'url de la page 
 export const getID = () => {
@@ -76,9 +77,12 @@ const getPhotographer = async () => {
          createH3Modal.classList.add("modal__name__photographer");
          createH3Modal.setAttribute ('aria-label', 'nom du photographe: ${name}');
          nameModal.appendChild(createH3Modal);
-        
     }
     
+    // initialisation de la lightbox uniquement quand les
+    // media sont chargés
+    Lightbox.init()
 }
 
 getPhotographer()
+
