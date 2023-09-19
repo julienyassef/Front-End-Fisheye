@@ -74,6 +74,7 @@ h1 {
 }
 .media-photographer__window-count {
   background-color: #DB8876;
+  border-radius: 5px 5px 0px 0px;
   width: 300px;
   height: 40px;
   position: fixed;
