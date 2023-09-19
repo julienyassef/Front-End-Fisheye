@@ -11,13 +11,24 @@ class Lightbox {
     constructor(url) {
         const element = this.buildDOM(url);
         // console.log(element)
-        document.body.appendChild(element);
-       
-       
+        document.body.appendChild(element);  
+        this.element = element;
     }
 
+    //ferme le lightbox
+
+    close(e){
+        e.preventDefault()
+        this.element.classList.add('fadeOut')
+        window.setTimeout(()=> {
+            this.element.remove()
+        }, 500)
+        console.log(e)
+    }
+   
+
     buildDOM(url) {
-    
+        
         const dom = document.createElement('div');
         dom.classList.add('lightbox');
 
@@ -36,6 +47,8 @@ class Lightbox {
               <img src="${url}"  >
             </div>`;
         }
+
+        dom.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this))
 
         return dom
     }
