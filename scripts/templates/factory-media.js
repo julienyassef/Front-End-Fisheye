@@ -72,7 +72,17 @@ const pageMediaTemplate = async (data) => {
         heartCard.classList.add('media-photographer__card__content__like__heart');
         heartCard.setAttribute ('aria-label', 'icon coeur');
         
-        
+        // pour rajouter 1 like possible par photo
+        let liked = false;
+
+        heartCard.addEventListener('click', () => {
+            if (!liked) { // Vérifiez si l'utilisateur n'a pas encore aimé la photo
+                liked = true; // Marquez la photo comme aimée
+                nbrLikeCard.textContent = `${likes + 1}`; 
+                nbrLikeCard.setAttribute('aria-label', `${likes + 1} de like de la ${mediaSource}: ${title}`);
+            }
+});
+
         mediaCard.appendChild(linkMediaCard)
         mediaCard.appendChild(contentCardMedia);
         mediaCard.appendChild(contentCardMedia);
