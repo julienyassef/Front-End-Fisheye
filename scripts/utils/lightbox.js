@@ -44,14 +44,14 @@ class Lightbox {
             <button class="lightbox__next">Suivant</button>
             <button class="lightbox__prev">Précédent</button>
             <div class="lightbox__container">
-            <video src="${url}" controls loop="auto" >
+            <video src="${url}" controls loop="auto" class="lightbox__container__img >
             </div>`;
         }else {
             dom.innerHTML = `<button class="lightbox__close">Fermer</button>
             <button class="lightbox__next">Suivant</button>
             <button class="lightbox__prev">Précédent</button>
             <div class="lightbox__container">
-              <img src="${url}"  >
+              <img src="${url}" class="lightbox__container__img" >
             </div>`;
         }
 

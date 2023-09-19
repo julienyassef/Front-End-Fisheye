@@ -90,6 +90,7 @@
   z-index: 10;
   overflow: auto;
   animation: lightboxIn 0.5s;
+  transition: opacity 0.3s;
 }
 .lightbox__close {
   border: none;
@@ -122,17 +123,30 @@
   rotate: 180deg;
 }
 .lightbox__container {
+  width: 1050px;
+  height: 900px;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 96px;
-  margin-right: 96px;
+  border: 2px;
+  border: solid;
+  border-color: #95FFF9;
+  margin: 0 auto;
+  max-width: 800px;
+  max-height: 600px;
+  overflow: hidden;
 }
 .lightbox__container__img {
-  max-width: 100%;
-  height: auto;
-  min-height: 100vh;
+  max-width: 800px;
+  max-height: 600px;
+  padding: 62px 96px 62px 96px;
+  -o-object-fit: contain;
+     object-fit: contain;
   animation: lightboxIn 0.5s;
+}
+
+.lightbox.fadeOut {
+  opacity: 0;
 }
 
 @keyframes lightboxIn {
