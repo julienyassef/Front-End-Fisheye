@@ -17,23 +17,26 @@ class Lightbox {
     }
 
     buildDOM(url) {
-        // tester si dans la const 'url' il y a le terme '.mp4' à la fin
-        // si oui :
-        // création d'une balise video ;)
-
-        // sinon :
+    
         const dom = document.createElement('div');
         dom.classList.add('lightbox');
-        dom.innerHTML = `<button class="lightbox__close">Fermer</button>
-        <button class="lightbox__next">Suivant</button>
-        <button class="lightbox__prev">Précédent</button>
-        <div class="lightbox__container">
-          <img src="${url}" alt="">
-        </div>`;
 
-       
-        
-        // console.log(url)
+        if (url.endsWith('.mp4')) {
+            dom.innerHTML = `<button class="lightbox__close">Fermer</button>
+            <button class="lightbox__next">Suivant</button>
+            <button class="lightbox__prev">Précédent</button>
+            <div class="lightbox__container">
+            <video src="${url}" controls loop="auto" >
+            </div>`;
+        }else {
+            dom.innerHTML = `<button class="lightbox__close">Fermer</button>
+            <button class="lightbox__next">Suivant</button>
+            <button class="lightbox__prev">Précédent</button>
+            <div class="lightbox__container">
+              <img src="${url}"  >
+            </div>`;
+        }
+
         return dom
     }
 }
