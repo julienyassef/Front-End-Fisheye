@@ -1,24 +1,41 @@
 class Lightbox {
     static init() {
-        const links = document.querySelectorAll('.media-photographer__a')
+        const links = Array.from(document.querySelectorAll('.media-photographer__a'))
+        const gallery = links.map(link =>link.getAttribute('href'))
         links.forEach(link => link.addEventListener('click', e => {
             e.preventDefault()
             // console.log('Image clicked');
-            new Lightbox(e.currentTarget.getAttribute('href'));
+            new Lightbox(e.currentTarget.getAttribute('href'), gallery);
         }));
     }
     
-    constructor(url) {
+    constructor(url, gallery) {
         const element = this.buildDOM(url);
-        this.onkeyUp = this.onkeyUp.bind(this)
+        this.gallery = gallery
+        this.currentIndex = gallery.indexOf(url);
         this.element = element;
         document.body.appendChild(element);  
-        document.addEventListener('keyup', this.onkeyUp)
+        document.addEventListener('keydown', this.onKeyDown.bind(this));
     }
 
-    onkeyUp (e) {
-        if (e.key == 'Escape') {
-            this.close(e)
+    // onkeyUp (e) {
+    //     if (e.key == 'Escape') {
+    //         this.close(e)
+    //     }
+    // }
+    onKeyDown(e) {
+        switch (e.key) {
+            case 'ArrowLeft':
+                this.prev(e);
+                break;
+            case 'ArrowRight':
+                this.next(e);
+                break;
+            case 'Escape':
+                this.close(e);
+                break;
+            default:
+                break;
         }
     }
 
@@ -29,10 +46,34 @@ class Lightbox {
         window.setTimeout(()=> {
             this.element.remove()
         }, 500)
-        document.removeEventListener('keyup', this.onkeyUp)
+        document.removeEventListener('keydown', this.onKeyDown);
         
     }
+
+    next(e){
+        e.preventDefault();
+        this.currentIndex = (this.currentIndex + 1) % this.gallery.length;
+        const nextURL = this.gallery[this.currentIndex];
+        this.loadContent(nextURL) 
+    }
+
+    prev(e){
+        e.preventDefault()
+        this.currentIndex = (this.currentIndex - 1 + this.gallery.length) % this.gallery.length;
+        const prevURL = this.gallery[this.currentIndex];
+        this.loadContent(prevURL); 
+    }
+
+    loadContent(url) {
+        // Supprimez l'ancien contenu du Lightbox
+        this.element.innerHTML = '';
+    
+        const content = this.buildDOM(url);
+        this.element.appendChild(content);
+    }
    
+   
+    
 
     buildDOM(url) {
         
@@ -44,7 +85,7 @@ class Lightbox {
             <button class="lightbox__next">Suivant</button>
             <button class="lightbox__prev">Précédent</button>
             <div class="lightbox__container">
-            <video src="${url}" controls loop="auto" class="lightbox__container__img >
+            <video src="${url}" controls loop="auto" class="lightbox__container__img" >
             </div>`;
         }else {
             dom.innerHTML = `<button class="lightbox__close">Fermer</button>
@@ -56,6 +97,8 @@ class Lightbox {
         }
 
         dom.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this))
+        dom.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this))
+        dom.querySelector('.lightbox__prev').addEventListener('click', this.prev.bind(this))
 
         return dom
     }
