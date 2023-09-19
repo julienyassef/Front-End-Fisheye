@@ -10,20 +10,27 @@ class Lightbox {
     
     constructor(url) {
         const element = this.buildDOM(url);
-        // console.log(element)
-        document.body.appendChild(element);  
+        this.onkeyUp = this.onkeyUp.bind(this)
         this.element = element;
+        document.body.appendChild(element);  
+        document.addEventListener('keyup', this.onkeyUp)
+    }
+
+    onkeyUp (e) {
+        if (e.key == 'Escape') {
+            this.close(e)
+        }
     }
 
     //ferme le lightbox
-
     close(e){
         e.preventDefault()
         this.element.classList.add('fadeOut')
         window.setTimeout(()=> {
             this.element.remove()
         }, 500)
-        console.log(e)
+        document.removeEventListener('keyup', this.onkeyUp)
+        
     }
    
 
