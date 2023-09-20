@@ -1,7 +1,10 @@
+
+// import totalScoreLike from "../pages/photographer.js"
+
 const getCardWindowCount = (photographers) => {
     const windowCounts = photographers.map((photographer) => {
         const price = photographer.price;
-        
+       
         const windowCount =  document.createElement ('div')  
             windowCount.classList.add('media-photographer__window-count')
     
@@ -9,7 +12,7 @@ const getCardWindowCount = (photographers) => {
                 likeWindowCount.classList.add('media-photographer__window-count__like');
     
         const nbrLikeWindowCount= document.createElement ('div');
-            nbrLikeWindowCount.textContent = `15`;
+            // nbrLikeWindowCount.textContent = totalScoreLike;
             nbrLikeWindowCount.classList.add('media-photographer__window-count__like__nbr');
             // nbrLikeWindowCount.setAttribute('aria-label', `${likes} de like de la ${mediaSource}: ${title}`);
             

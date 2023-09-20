@@ -1,5 +1,4 @@
 import { getID } from "../pages/photographer.js";
-// import { getPhotographers } from "../utils/getData.js";
 import { getPhotographerFromID } from "../utils/getData.js";
 
 const pageMediaTemplate = async (data) => {
@@ -72,17 +71,21 @@ const pageMediaTemplate = async (data) => {
         heartCard.classList.add('media-photographer__card__content__like__heart');
         heartCard.setAttribute ('aria-label', 'icon coeur');
         
-        // pour rajouter 1 like possible par photo
-        let liked = false;
-
+        let likeCount = likes;
+        let hasLiked = false; 
+        
         heartCard.addEventListener('click', () => {
-            if (!liked) { // Vérifiez si l'utilisateur n'a pas encore aimé la photo
-                liked = true; // Marquez la photo comme aimée
-                nbrLikeCard.textContent = `${likes + 1}`; 
-                nbrLikeCard.setAttribute('aria-label', `${likes + 1} de like de la ${mediaSource}: ${title}`);
+            if (!hasLiked) { // Vérifiez si l'utilisateur n'a pas encore cliqué
+                likeCount += 1;
+                nbrLikeCard.textContent = `${likeCount}`;
+                nbrLikeCard.setAttribute('aria-label', `${likeCount} de like de la ${mediaSource}: ${title}`);
+                
+                hasLiked = true; // Marquez la photo comme aimée
             }
-});
-
+        });
+         console.log(nbrLikeCard)
+       
+       
         mediaCard.appendChild(linkMediaCard)
         mediaCard.appendChild(contentCardMedia);
         mediaCard.appendChild(contentCardMedia);
@@ -91,6 +94,7 @@ const pageMediaTemplate = async (data) => {
         likeCard.appendChild(nbrLikeCard);
         likeCard.appendChild(heartCard);
 
+       
         return mediaCard;
     }
 

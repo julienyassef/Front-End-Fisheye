@@ -29,32 +29,36 @@ const getPhotographer = async () => {
     // Trouve le photographe dont l'ID correspond à celui dans l'URL
     const photographerDetail = photographers.find(photographer => photographer.id == photographerId)
 
+   
+
 
     if (photographerDetail) {
         // Utilise la card créé pour la page
         const photographerModel = pagePhotographerTemplate(photographerDetail);
+
         // Obtient le contenu DOM de la card créé
         const userCardDOM = photographerModel.getUserCardDOM();
 
         // Sélectionne une div en HTML pour mettre la card
         const photographersSection = document.querySelector(".header-profil");
-
-        // Ajoute la carte au DOM
-
-          photographersSection.appendChild(userCardDOM);
+            photographersSection.appendChild(userCardDOM);
 
           // import la card windowcount
-
         const windowCountElements = getCardWindowCount([photographerDetail]);
             photographersSection.appendChild(windowCountElements[0]);  
             
-    
         const mediaSection = document.querySelector('.media-photographer');
-
-        
 
         // Filtrer les médias du photographe actuel 
         const mediaOfPhotographer = medias.filter(media => media.photographerId == photographerId);
+
+        // mediaOfPhotographer.forEach(media => {
+        //     const likes = media.likes;
+        //     console.log(`Likes: ${likes}`);
+        //     // Faites ce que vous voulez avec la valeur des likes, par exemple, les afficher dans la console.
+        // });
+        
+        
 
         // Pour chaque média du photographe actuel :
             for (let i = 0; i < mediaOfPhotographer.length; i++) {
@@ -78,11 +82,19 @@ const getPhotographer = async () => {
          createH3Modal.setAttribute ('aria-label', 'nom du photographe: ${name}');
          nameModal.appendChild(createH3Modal);
     }
-    
-    // initialisation de la lightbox uniquement quand les
-    // media sont chargés
-    Lightbox.init()
+
+         // =======================================
+        //      Count like page
+        // =======================================
+
+        
+ 
+ 
+ // initialisation de la lightbox uniquement quand les
+ // media sont chargés
+ Lightbox.init()
 }
+
 
 getPhotographer()
 
