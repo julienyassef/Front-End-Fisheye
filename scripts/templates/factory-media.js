@@ -20,7 +20,6 @@ const pageMediaTemplate = async (data) => {
         mediaSource = `Sample Photos/${photographerName}/${video}`;
     }
 
-
     const getModelCardDOM = () => {
 
         const mediaCard = document.createElement('article');
@@ -71,21 +70,38 @@ const pageMediaTemplate = async (data) => {
         heartCard.classList.add('media-photographer__card__content__like__heart');
         heartCard.setAttribute ('aria-label', 'icon coeur');
         
+
+        // =======================================
+        //      1 like par photo/vidéo
+        // =======================================
+
         let likeCount = likes;
         let hasLiked = false; 
+
         
         heartCard.addEventListener('click', () => {
-            if (!hasLiked) { // Vérifiez si l'utilisateur n'a pas encore cliqué
+            if (!hasLiked) { // Vérifie si la photo/vidéo n'a pas encore cliqué
                 likeCount += 1;
                 nbrLikeCard.textContent = `${likeCount}`;
                 nbrLikeCard.setAttribute('aria-label', `${likeCount} de like de la ${mediaSource}: ${title}`);
                 
-                hasLiked = true; // Marquez la photo comme aimée
+                hasLiked = true; // Marque la photo comme aimée
             }
         });
-         console.log(nbrLikeCard)
+
+        // console.log(likeCount)
+
+        // data.likes = likeCount;
+
+        // console.log(data);
        
-       
+    
+
+        
+        // =======================================
+        //     ajout des balises à la card
+        // =======================================
+
         mediaCard.appendChild(linkMediaCard)
         mediaCard.appendChild(contentCardMedia);
         mediaCard.appendChild(contentCardMedia);
@@ -94,6 +110,7 @@ const pageMediaTemplate = async (data) => {
         likeCard.appendChild(nbrLikeCard);
         likeCard.appendChild(heartCard);
 
+      
        
         return mediaCard;
     }

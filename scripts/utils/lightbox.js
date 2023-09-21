@@ -4,7 +4,6 @@ class Lightbox {
         const gallery = links.map(link =>link.getAttribute('href'))
         links.forEach(link => link.addEventListener('click', e => {
             e.preventDefault()
-            // console.log('Image clicked');
             new Lightbox(e.currentTarget.getAttribute('href'), gallery);
         }));
     }
@@ -18,11 +17,6 @@ class Lightbox {
         document.addEventListener('keydown', this.onKeyDown.bind(this));
     }
 
-    // onkeyUp (e) {
-    //     if (e.key == 'Escape') {
-    //         this.close(e)
-    //     }
-    // }
     onKeyDown(e) {
         switch (e.key) {
             case 'ArrowLeft':
@@ -39,7 +33,6 @@ class Lightbox {
         }
     }
 
-    //ferme le lightbox
     close(e){
         e.preventDefault()
         this.element.classList.add('fadeOut')
@@ -67,31 +60,27 @@ class Lightbox {
     loadContent(url) {
         // Supprimez l'ancien contenu du Lightbox
         this.element.innerHTML = '';
-    
         const content = this.buildDOM(url);
         this.element.appendChild(content);
     }
    
-   
-    
-
     buildDOM(url) {
         
         const dom = document.createElement('div');
         dom.classList.add('lightbox');
 
         if (url.endsWith('.mp4')) {
-            dom.innerHTML = `<button class="lightbox__close">Fermer</button>
+            dom.innerHTML = `<div class="lightbox__container">
+            <button class="lightbox__close">Fermer</button>
             <button class="lightbox__next">Suivant</button>
             <button class="lightbox__prev">Précédent</button>
-            <div class="lightbox__container">
             <video src="${url}" controls loop="auto" class="lightbox__container__img" >
             </div>`;
         }else {
-            dom.innerHTML = `<button class="lightbox__close">Fermer</button>
+            dom.innerHTML = `<div class="lightbox__container">
+            <button class="lightbox__close">Fermer</button>
             <button class="lightbox__next">Suivant</button>
             <button class="lightbox__prev">Précédent</button>
-            <div class="lightbox__container">
               <img src="${url}" class="lightbox__container__img" >
             </div>`;
         }

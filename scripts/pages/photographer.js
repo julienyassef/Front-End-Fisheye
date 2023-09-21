@@ -17,7 +17,6 @@ export const getID = () => {
     return id
 }
 
-
 const getPhotographer = async () => {
     //permet d'utiliser l'ID récupéré dans l'URL dans la function en dynamique
     const photographerId = getID();
@@ -30,8 +29,6 @@ const getPhotographer = async () => {
     const photographerDetail = photographers.find(photographer => photographer.id == photographerId)
 
    
-
-
     if (photographerDetail) {
         // Utilise la card créé pour la page
         const photographerModel = pagePhotographerTemplate(photographerDetail);
@@ -55,10 +52,9 @@ const getPhotographer = async () => {
         // mediaOfPhotographer.forEach(media => {
         //     const likes = media.likes;
         //     console.log(`Likes: ${likes}`);
-        //     // Faites ce que vous voulez avec la valeur des likes, par exemple, les afficher dans la console.
+          
         // });
-        
-        
+
 
         // Pour chaque média du photographe actuel :
             for (let i = 0; i < mediaOfPhotographer.length; i++) {
@@ -88,8 +84,8 @@ const getPhotographer = async () => {
         // =======================================
 
         
- 
- 
+          
+
  // initialisation de la lightbox uniquement quand les
  // media sont chargés
  Lightbox.init()
