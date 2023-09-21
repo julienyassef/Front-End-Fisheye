@@ -17,7 +17,7 @@ export const getID = () => {
     return id
 }
 
-const getPhotographer = async () => {
+export const getPhotographer = async () => {
     //permet d'utiliser l'ID récupéré dans l'URL dans la function en dynamique
     const photographerId = getID();
     const data = await getPhotographers();
@@ -48,6 +48,7 @@ const getPhotographer = async () => {
 
         // Filtrer les médias du photographe actuel 
         const mediaOfPhotographer = medias.filter(media => media.photographerId == photographerId);
+
 
         // mediaOfPhotographer.forEach(media => {
         //     const likes = media.likes;

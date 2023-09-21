@@ -1,3 +1,4 @@
+
 class Lightbox {
     static init() {
         const links = Array.from(document.querySelectorAll('.media-photographer__a'))
@@ -8,15 +9,15 @@ class Lightbox {
         }));
     }
     
-    constructor(url, gallery) {
-        const element = this.buildDOM(url);
-        this.gallery = gallery
-        this.currentIndex = gallery.indexOf(url);
+    constructor(url, mediaOfPhotographer) {
+        const element = this.buildDOM(url, mediaOfPhotographer);
+        this.mediaOfPhotographer = mediaOfPhotographer;
+        this.currentIndex = mediaOfPhotographer.findIndex(media => media.image === url || media.video === url);
         this.element = element;
         document.body.appendChild(element);  
         document.addEventListener('keydown', this.onKeyDown.bind(this));
     }
-
+    
     onKeyDown(e) {
         switch (e.key) {
             case 'ArrowLeft':
@@ -45,29 +46,30 @@ class Lightbox {
 
     next(e){
         e.preventDefault();
-        this.currentIndex = (this.currentIndex + 1) % this.gallery.length;
-        const nextURL = this.gallery[this.currentIndex];
+        this.currentIndex = (this.currentIndex + 1) % this.mediaOfPhotographer.length;
+        const nextURL = this.mediaOfPhotographer[this.currentIndex];
         this.loadContent(nextURL) 
     }
 
     prev(e){
         e.preventDefault()
-        this.currentIndex = (this.currentIndex - 1 + this.gallery.length) % this.gallery.length;
-        const prevURL = this.gallery[this.currentIndex];
+        this.currentIndex = (this.currentIndex - 1 + this.mediaOfPhotographer.length) % this.mediaOfPhotographer.length;
+        const prevURL = this.mediaOfPhotographer[this.currentIndex];
         this.loadContent(prevURL); 
     }
 
-    loadContent(url) {
+    loadContent(url, mediaOfPhotographer) {
         // Supprimez l'ancien contenu du Lightbox
         this.element.innerHTML = '';
         const content = this.buildDOM(url);
         this.element.appendChild(content);
     }
-   
+    
     buildDOM(url) {
         
         const dom = document.createElement('div');
         dom.classList.add('lightbox');
+
 
         if (url.endsWith('.mp4')) {
             dom.innerHTML = `<div class="lightbox__container">
