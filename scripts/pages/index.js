@@ -5,7 +5,6 @@ import { getPhotographers } from '../utils/getData.js'
 const displayData = async(photographers) => {
     // sélection une div en html pour mettre le tableau
     const photographersSection = document.querySelector(".photographer_section");
-    console.log(photographersSection)
 
     // parcourt chaque photographe dans le tableau des donnés
     photographers.forEach((photographer) => {
@@ -24,6 +23,7 @@ const init = async() => {
     // Récupère les datas des photographes
     const { photographers } = await getPhotographers();
     displayData(photographers);
+    console.log(photographers)
 }
 
 init();
