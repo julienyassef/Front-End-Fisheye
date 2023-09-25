@@ -152,7 +152,34 @@ h1 {
             
         } 
     }
-    
+}
 
+///====================///
+///   Menu trier par   ///   
+///====================/// 
+
+.select-container{
+    display: flex;
+    flex-direction: row;
+    margin: 50px 100px;
+    gap: 50px;
+   
+    &__title {
+        color: #000;
+        font-size: 26px;
+        font-weight: 700;
+    }
+    &__menu {
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        padding: 11px;
+        width: 170px;
+        height: 70px;
+        border: none;
+        background-color: #901C1C;
+        border-radius: 5px;
+        cursor: pointer;
+    }
 }
 

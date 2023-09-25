@@ -15,6 +15,19 @@
     </header>
     <main id="main">
       <div class="header-profil"></div>
+
+
+      <div class="select-container">
+        <h2 class="select-container__title">Trier par :</h2>
+    <select class="select-container__menu" id="menu-trier">
+        <option value="Popularité">Popularité</option>
+        <option value="Date">Date</option>
+        <option value="Titre">Titre</option>   
+    </select>
+      </div>
+
+
+
      <div class="media-photographer"></div>
      <div id="lightbox"></div>
     </main>
@@ -67,6 +80,7 @@
 			</div>
 		</div>
     <script src="/scripts/pages/photographer.js" type="module"></script>
+    <script src="/scripts/utils/select.js" type="module"></script>
     <script src="/scripts/utils/contactForm.js" type="module"></script>
   </body>
 </html>
