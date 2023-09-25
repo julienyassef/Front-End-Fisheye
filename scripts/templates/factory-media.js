@@ -27,6 +27,7 @@ const pageMediaTemplate = async (data) => {
 
         const linkMediaCard = document.createElement('a');
         linkMediaCard.classList.add('media-photographer__a');
+        linkMediaCard.setAttribute('title', title);
         
 
         if (mediaType === "image") {

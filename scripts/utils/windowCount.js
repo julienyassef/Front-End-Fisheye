@@ -41,3 +41,15 @@ const getCardWindowCount = (photographers) => {
 
 export default getCardWindowCount
 
+
+
+// const likes = querySelectorAll('.like_nbr)
+// const total = 0
+// likes.forEach((like) => {
+    // total += parseInt(likes.innerHTML)
+    // }
+// total == 343
+// totalDOM.innerHTML = total
+    
+// const heart = querySelectorAll('.like_nbr)
+

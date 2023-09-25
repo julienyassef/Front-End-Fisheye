@@ -2,7 +2,8 @@
 class Lightbox {
     static init() {
         const links = Array.from(document.querySelectorAll('.media-photographer__a'))
-        const gallery = links.map(link =>link.getAttribute('href'))
+        const gallery = links.map(link => ({href: link.getAttribute('href'), title: link.getAttribute('title')}))
+
         links.forEach(link => link.addEventListener('click', e => {
             e.preventDefault()
             new Lightbox(e.currentTarget.getAttribute('href'), gallery);
@@ -10,11 +11,13 @@ class Lightbox {
     }
     
     constructor(url, mediaOfPhotographer) {
+        const mediaOfPhotographerFlat = mediaOfPhotographer.map(media => media.href).flat();
+        
         const element = this.buildDOM(url, mediaOfPhotographer);
-        this.mediaOfPhotographer = mediaOfPhotographer;
-        this.currentIndex = mediaOfPhotographer.findIndex(media => media.image === url || media.video === url);
+        this.mediaOfPhotographer = mediaOfPhotographerFlat;
+        this.currentIndex = mediaOfPhotographerFlat.findIndex(media => media.image === url || media.video === url);
         this.element = element;
-        document.body.appendChild(element);  
+        document.body.appendChild(element);
         document.addEventListener('keydown', this.onKeyDown.bind(this));
     }
     
@@ -65,8 +68,8 @@ class Lightbox {
         this.element.appendChild(content);
     }
     
-    buildDOM(url) {
-        
+    buildDOM(url, mediaOfPhotographer) {
+        const media = mediaOfPhotographer.find(media => media.href === url)
         const dom = document.createElement('div');
         dom.classList.add('lightbox');
 
@@ -78,7 +81,7 @@ class Lightbox {
             <button class="lightbox__prev">Précédent</button>
             <div class="lightbox__content">
             <video src="${url}" controls loop="auto" class="lightbox__container__img"></video>
-            <p class="lightbox__container__title">titre</p>
+            <p class="lightbox__container__title">${media.title}</p>
             </div>
             </div>`;
         }else {
@@ -88,7 +91,7 @@ class Lightbox {
             <button class="lightbox__prev">Précédent</button>
             <div class="lightbox__content">
             <img src="${url}" class="lightbox__container__img">
-            <p class="lightbox__container__title">titre</p>
+            <p class="lightbox__container__title">${media.title}</p>
             </div>
             </div>`;
         }
