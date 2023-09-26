@@ -158,11 +158,17 @@ h1 {
   flex-direction: row;
   margin: 50px 100px;
   gap: 50px;
+  position: relative;
 }
 .select-container__title {
   color: #000;
   font-size: 26px;
   font-weight: 700;
+}
+.select-container__arrow {
+  position: absolute;
+  left: 310px;
+  top: 20px;
 }
 .select-container__menu {
   font-size: 20px;
@@ -170,9 +176,15 @@ h1 {
   color: white;
   padding: 11px;
   width: 170px;
-  height: 70px;
+  height: 170px;
   border: none;
   background-color: #901C1C;
   border-radius: 5px;
   cursor: pointer;
+}
+.select-container__menu__option {
+  padding: 15px 10px;
+}
+.select-container__menu__border {
+  border-top: 2px solid white;
 }/*# sourceMappingURL=style.css.map */
