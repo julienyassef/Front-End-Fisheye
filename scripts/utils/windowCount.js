@@ -1,8 +1,3 @@
-
-
-
-
-
 const getCardWindowCount = (photographers) => {
     const windowCounts = photographers.map((photographer) => {
         const price = photographer.price;
@@ -14,9 +9,7 @@ const getCardWindowCount = (photographers) => {
                 likeWindowCount.classList.add('media-photographer__window-count__like');
     
         const nbrLikeWindowCount= document.createElement ('div');
-            // nbrLikeWindowCount.textContent = totalScoreLike;
             nbrLikeWindowCount.classList.add('media-photographer__window-count__like__nbr');
-            // nbrLikeWindowCount.setAttribute('aria-label', `${likes} de like de la ${mediaSource}: ${title}`);
             
         const heartWindowCount = document.createElement('img');
             heartWindowCount.src = 'assets/icons/heartblack.svg'; 
@@ -35,33 +28,11 @@ const getCardWindowCount = (photographers) => {
                 likeWindowCount.appendChild(heartWindowCount)
             windowCount.appendChild(priceDay);
 
-            
-            
             return (windowCount);
     });
 
-    
-    
-    // let total = 0;
-    // likes.forEach((like) => {
-    //     total += parseInt(like.innerHTML);
-    //     console.log(total)
-  
-
-    // const likes = querySelectorAll('.like_nbr)
-    // const total = 0
-    // likes.forEach((like) => {
-    //     total += parseInt(likes.innerHTML)
-    //     }
-    // total == 343
-    // totalDOM.innerHTML = total
-        
-    // const heart = querySelectorAll('.like_nbr)
-
-    
     return windowCounts;
 }
-
 
 export default getCardWindowCount
 

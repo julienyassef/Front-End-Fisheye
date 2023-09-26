@@ -87,14 +87,11 @@ const pageMediaTemplate = async (data) => {
                 nbrLikeCard.setAttribute('aria-label', `${likeCount} de like de la ${mediaSource}: ${title}`);
                 
                 hasLiked = true; // Marque la photo comme aimée
+                
             }
         });
 
-        // console.log(likeCount)
 
-        // data.likes = likeCount;
-
-        // console.log(data);
        
     
 
@@ -111,8 +108,6 @@ const pageMediaTemplate = async (data) => {
         likeCard.appendChild(nbrLikeCard);
         likeCard.appendChild(heartCard);
 
-      
-       
         return mediaCard;
     }
 

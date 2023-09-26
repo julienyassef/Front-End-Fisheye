@@ -50,15 +50,6 @@ export const getPhotographer = async () => {
         const mediaOfPhotographer = medias.filter(media => media.photographerId == photographerId);
 
 
-        // mediaOfPhotographer.forEach(media => {
-        //     const likes = media.likes;
-        //     console.log(`Likes: ${likes}`);
-          
-        // });
-
-        
-
-
         // Pour chaque média du photographe actuel :
             for (let i = 0; i < mediaOfPhotographer.length; i++) {
             const media = mediaOfPhotographer[i];
@@ -86,19 +77,34 @@ export const getPhotographer = async () => {
         //      Count like page
         // =======================================
 
-        const likes =  Array.from(document.querySelectorAll('.media-photographer__card__content__like__nbr'));
-   
+        const likeHeart = document.querySelector('.media-photographer__card__content__like__heart');
+        console.log(likeHeart);
+        const nbrLikeWindowCount= document.querySelector ('.media-photographer__window-count__like__nbr');
+        
+        
         let total = 0;
+        const likes =  Array.from(document.querySelectorAll('.media-photographer__card__content__like__nbr'));
+        let isLiked = false;
 
         likes.forEach((like) => {
             total += parseInt(like.innerHTML);
         });
         
+        nbrLikeWindowCount.textContent = total
+        nbrLikeWindowCount.setAttribute('aria-label',`${total} de like `);
 
-        const nbrLikeWindowCount= document.querySelector ('.media-photographer__window-count__like__nbr');
-                nbrLikeWindowCount.textContent = total
-                nbrLikeWindowCount.setAttribute('aria-label',`${total} de like `);
+        likeHeart.addEventListener('click', () => {
+            if (!isLiked) {
+                total += 1;
+        
+            nbrLikeWindowCount.textContent = total;
+            nbrLikeWindowCount.setAttribute('aria-label', `${total} de like`);
 
+            likeHeart.removeEventListener('click', () => {});
+
+            isLiked = true;
+            }
+        });
    
           
 
