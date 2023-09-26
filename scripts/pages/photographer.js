@@ -56,6 +56,8 @@ export const getPhotographer = async () => {
           
         // });
 
+        
+
 
         // Pour chaque média du photographe actuel :
             for (let i = 0; i < mediaOfPhotographer.length; i++) {
@@ -84,7 +86,20 @@ export const getPhotographer = async () => {
         //      Count like page
         // =======================================
 
+        const likes =  Array.from(document.querySelectorAll('.media-photographer__card__content__like__nbr'));
+   
+        let total = 0;
+
+        likes.forEach((like) => {
+            total += parseInt(like.innerHTML);
+        });
         
+
+        const nbrLikeWindowCount= document.querySelector ('.media-photographer__window-count__like__nbr');
+                nbrLikeWindowCount.textContent = total
+                nbrLikeWindowCount.setAttribute('aria-label',`${total} de like `);
+
+   
           
 
  // initialisation de la lightbox uniquement quand les

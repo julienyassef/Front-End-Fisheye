@@ -1,5 +1,7 @@
 
-// import totalScoreLike from "../pages/photographer.js"
+
+
+
 
 const getCardWindowCount = (photographers) => {
     const windowCounts = photographers.map((photographer) => {
@@ -33,23 +35,37 @@ const getCardWindowCount = (photographers) => {
                 likeWindowCount.appendChild(heartWindowCount)
             windowCount.appendChild(priceDay);
 
+            
+            
             return (windowCount);
     });
+
+    
+    
+    // let total = 0;
+    // likes.forEach((like) => {
+    //     total += parseInt(like.innerHTML);
+    //     console.log(total)
+  
+
+    // const likes = querySelectorAll('.like_nbr)
+    // const total = 0
+    // likes.forEach((like) => {
+    //     total += parseInt(likes.innerHTML)
+    //     }
+    // total == 343
+    // totalDOM.innerHTML = total
+        
+    // const heart = querySelectorAll('.like_nbr)
+
     
     return windowCounts;
 }
+
 
 export default getCardWindowCount
 
 
 
-// const likes = querySelectorAll('.like_nbr)
-// const total = 0
-// likes.forEach((like) => {
-    // total += parseInt(likes.innerHTML)
-    // }
-// total == 343
-// totalDOM.innerHTML = total
-    
-// const heart = querySelectorAll('.like_nbr)
+
 

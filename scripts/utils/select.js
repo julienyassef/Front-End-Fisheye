@@ -2,7 +2,7 @@ const menuTrier = document.getElementById('menu-trier');
 
 const likes = document.querySelectorAll('.media-photographer__card__content__like__nbr');
 
-console.log(likes);
+
 
 
 

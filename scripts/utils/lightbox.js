@@ -14,7 +14,7 @@ class Lightbox {
         const mediaOfPhotographerFlat = mediaOfPhotographer.map(media => media.href).flat();
         
         const element = this.buildDOM(url, mediaOfPhotographer);
-        this.mediaOfPhotographer = mediaOfPhotographerFlat;
+        this.mediaOfPhotographerFlat = mediaOfPhotographer;
         this.currentIndex = mediaOfPhotographerFlat.findIndex(media => media.image === url || media.video === url);
         this.element = element;
         document.body.appendChild(element);
@@ -61,7 +61,7 @@ class Lightbox {
         this.loadContent(prevURL); 
     }
 
-    loadContent(url, mediaOfPhotographer) {
+    loadContent(url) {
         // Supprimez l'ancien contenu du Lightbox
         this.element.innerHTML = '';
         const content = this.buildDOM(url);
@@ -72,6 +72,7 @@ class Lightbox {
         const media = mediaOfPhotographer.find(media => media.href === url)
         const dom = document.createElement('div');
         dom.classList.add('lightbox');
+       
 
 
         if (url.endsWith('.mp4')) {
