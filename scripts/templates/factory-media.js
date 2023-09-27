@@ -91,11 +91,6 @@ const pageMediaTemplate = async (data) => {
             }
         });
 
-
-       
-    
-
-        
         // =======================================
         //     ajout des balises à la card
         // =======================================
@@ -110,7 +105,6 @@ const pageMediaTemplate = async (data) => {
 
         return mediaCard;
     }
-
 
     return { photographerId, title, image, video, likes, id, getModelCardDOM }; 
 }

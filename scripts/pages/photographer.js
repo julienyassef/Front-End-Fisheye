@@ -49,6 +49,7 @@ export const getPhotographer = async () => {
         // Filtrer les médias du photographe actuel 
         const mediaOfPhotographer = medias.filter(media => media.photographerId == photographerId);
 
+        // console.log(mediaOfPhotographer);
 
         // Pour chaque média du photographe actuel :
             for (let i = 0; i < mediaOfPhotographer.length; i++) {
@@ -73,12 +74,11 @@ export const getPhotographer = async () => {
          nameModal.appendChild(createH3Modal);
     }
 
-         // =======================================
+        // =======================================
         //      Count like page
         // =======================================
 
         const likeHeart = document.querySelector('.media-photographer__card__content__like__heart');
-        console.log(likeHeart);
         const nbrLikeWindowCount= document.querySelector ('.media-photographer__window-count__like__nbr');
         
         
@@ -106,7 +106,45 @@ export const getPhotographer = async () => {
             }
         });
    
+        // =======================================
+        //      Menu trier par 
+        // =======================================  
+
+        const menu = document.getElementById('menu-trier');
+        const options = menu.querySelectorAll('.select-container__menu__option');
+        const contenu = document.querySelectorAll('.media-photographer__card');
+        const contenuContainer = document.querySelector('.media-photographer');
+  
+    
+        options.forEach(option => {
+            option.addEventListener('click', () => {
+                const critereDeTri = option.textContent.toLowerCase();
+                
+                
+                
+            const contenuTrié = Array.from(contenu).sort((a, b) => {
+                    
+            if (critereDeTri === 'popularité') {
+            
+            } else if (critereDeTri === 'date') {
+               
+            } else if (critereDeTri === 'titre') {
+                
+            }
+
           
+            });
+
+            // Remplace le contenu existant par le contenu trié
+            contenu.forEach(element => element.remove());
+            contenuTrié.forEach(element => contenuContainer.appendChild(element));
+
+        });
+        });
+
+
+
+
 
  // initialisation de la lightbox uniquement quand les
  // media sont chargés

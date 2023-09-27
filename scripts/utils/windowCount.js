@@ -28,8 +28,11 @@ const getCardWindowCount = (photographers) => {
                 likeWindowCount.appendChild(heartWindowCount)
             windowCount.appendChild(priceDay);
 
+           
+
             return (windowCount);
     });
+    
 
     return windowCounts;
 }

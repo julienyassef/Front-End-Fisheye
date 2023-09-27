@@ -164,7 +164,6 @@ h1 {
     margin: 50px 100px;
     gap: 50px;
     position: relative;
-   
     &__title {
         color: #000;
         font-size: 26px;
@@ -174,7 +173,6 @@ h1 {
         position: absolute;
         left: 310px;
         top: 20px
-
     }
     &__menu {
         font-size: 20px;
@@ -192,9 +190,7 @@ h1 {
         }
         &__border {
             border-top: 2px solid white; 
-        }
-        
-        
+        }  
     }
 }
 
