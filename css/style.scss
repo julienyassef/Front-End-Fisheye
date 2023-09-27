@@ -76,6 +76,7 @@ h1 {
     margin: 50px 100px 0px 100px;
     &__window-count {
         background-color: #DB8876;
+        border-radius: 5px 5px 0px 0px;
         width: 300px;
         height: 40px;
         position: fixed;
@@ -151,7 +152,45 @@ h1 {
             
         } 
     }
-    
+}
 
+///====================///
+///   Menu trier par   ///   
+///====================/// 
+
+.select-container{
+    display: flex;
+    flex-direction: row;
+    margin: 50px 100px;
+    gap: 50px;
+    position: relative;
+    &__title {
+        color: #000;
+        font-size: 26px;
+        font-weight: 700;
+    }
+    &__arrow {
+        position: absolute;
+        left: 310px;
+        top: 20px
+    }
+    &__menu {
+        font-size: 20px;
+        font-weight: bold;
+        color: white;
+        padding: 11px;
+        width: 170px;
+        height: 170px;
+        border: none;
+        background-color: #901C1C;
+        border-radius: 5px;
+        cursor: pointer;
+        &__option{
+            padding: 15px 10px; 
+        }
+        &__border {
+            border-top: 2px solid white; 
+        }  
+    }
 }
 

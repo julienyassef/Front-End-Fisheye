@@ -79,7 +79,6 @@
         margin: 0;
         font-size: 64px;
         font-weight: normal;
-        margin-bottom: 30px;
         }
     }
     
@@ -96,6 +95,9 @@
 
 .lightbox {
     position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     top: 0;
     left: 0;
     width: 100%;
@@ -104,27 +106,26 @@
     z-index: 10;
     overflow: auto;
     animation: lightboxIn .5s;
-    // border-color: #95fff9;
-    // border: 5px;
-    
+    transition: opacity 0.3s;
     &__close{
+        position: absolute;
         border: none;
         background: url(../assets/icons/crosslightbox.svg) center center / 72px 72px no-repeat;
         width: 72px;
         height: 72px;
-        position: fixed;
         margin: 15px;
+        top: 5px;
         right: 0;
         z-index: 12;
         text-indent: -30000px;
     }
     &__next,
     &__prev {
+        position: absolute;
         border: none;
         background: url(../assets/icons/arrowlightbox.svg) center center / 96px 96px no-repeat;
         width: 96px;
         height: 96px;
-        position: fixed;
         top: 50%;
         right: 0;
         margin-top: -48px;
@@ -139,23 +140,38 @@
         rotate: 180deg;
     } 
     &__container {
+        position: relative; 
+        width: 950px;
+        height: 600px; 
+        display: flex;
+        flex-direction: column; 
+        align-items: center;
+        justify-content: center;
+        border: 4px solid #95FFF9; 
+        margin: 0 auto;
+        overflow: hidden; 
+        &__img {
+            max-width: 700px;
+            max-height: 500px;
+            padding: 0px 96px 0px 96px;
+            animation: lightboxIn .5s;
+            transition: opacity 0,3s;
+        } 
+        &__content{
             display: flex;
             align-items: center;
-            justify-content: center;
-            margin-left: 96px;
-            margin-right: 96px;
-        &__img {
-            max-width: 100%;
-            height: auto;
-            min-height: 100vh;
-            animation: lightboxIn .5s;
-            // border: 5px;
-            // border-color: #c4c4c4;
-        
-        }
-        
+            }   
+        &__title {
+            color: #901C1C; 
+            font-size: 24px;
+            font-weight: 400;
+            margin-left: 100px
+            }  
     }
+}
 
+.lightbox.fadeOut {
+    opacity: 0;
 }
 
 @keyframes lightboxIn {

@@ -74,6 +74,7 @@ h1 {
 }
 .media-photographer__window-count {
   background-color: #DB8876;
+  border-radius: 5px 5px 0px 0px;
   width: 300px;
   height: 40px;
   position: fixed;
@@ -150,4 +151,40 @@ h1 {
   font-size: 24px;
   font-weight: 500;
   margin-top: 10px;
+}
+
+.select-container {
+  display: flex;
+  flex-direction: row;
+  margin: 50px 100px;
+  gap: 50px;
+  position: relative;
+}
+.select-container__title {
+  color: #000;
+  font-size: 26px;
+  font-weight: 700;
+}
+.select-container__arrow {
+  position: absolute;
+  left: 310px;
+  top: 20px;
+}
+.select-container__menu {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+  padding: 11px;
+  width: 170px;
+  height: 170px;
+  border: none;
+  background-color: #901C1C;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.select-container__menu__option {
+  padding: 15px 10px;
+}
+.select-container__menu__border {
+  border-top: 2px solid white;
 }/*# sourceMappingURL=style.css.map */

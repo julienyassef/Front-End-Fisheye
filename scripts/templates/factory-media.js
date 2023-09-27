@@ -1,5 +1,4 @@
 import { getID } from "../pages/photographer.js";
-// import { getPhotographers } from "../utils/getData.js";
 import { getPhotographerFromID } from "../utils/getData.js";
 
 const pageMediaTemplate = async (data) => {
@@ -21,7 +20,6 @@ const pageMediaTemplate = async (data) => {
         mediaSource = `Sample Photos/${photographerName}/${video}`;
     }
 
-
     const getModelCardDOM = () => {
 
         const mediaCard = document.createElement('article');
@@ -29,6 +27,7 @@ const pageMediaTemplate = async (data) => {
 
         const linkMediaCard = document.createElement('a');
         linkMediaCard.classList.add('media-photographer__a');
+        linkMediaCard.setAttribute('title', title);
         
 
         if (mediaType === "image") {
@@ -40,17 +39,15 @@ const pageMediaTemplate = async (data) => {
             linkMediaCard.appendChild(img);
             linkMediaCard.href = `Sample Photos/${photographerName}/${image}`;
         } else if (mediaType === "video") {
-            const video = document.createElement('video');
-            video.controls = true;
-            video.src = mediaSource;
-            video.alt = title;
-            video.type = "video/mp4";
-            video.classList.add('media-photographer__card__video');
-            video.setAttribute('alt', `vidéo de : ${title}`);
-            linkMediaCard.appendChild(video);
+            const videoCard = document.createElement('video');
+            videoCard.controls = true;
+            videoCard.src = mediaSource;
+            videoCard.alt = title;
+            videoCard.type = "video/mp4";
+            videoCard.classList.add('media-photographer__card__video');
+            videoCard.setAttribute('alt', `vidéo de : ${title}`);
+            linkMediaCard.appendChild(videoCard);
             linkMediaCard.href =`Sample Photos/${photographerName}/${video}`;
-            
-            // revoir le probleme de video link
         }
 
         const contentCardMedia = document.createElement ('div');
@@ -74,7 +71,30 @@ const pageMediaTemplate = async (data) => {
         heartCard.classList.add('media-photographer__card__content__like__heart');
         heartCard.setAttribute ('aria-label', 'icon coeur');
         
+
+        // =======================================
+        //      1 like par photo/vidéo
+        // =======================================
+
+        let likeCount = likes;
+        let hasLiked = false; 
+
         
+        heartCard.addEventListener('click', () => {
+            if (!hasLiked) { // Vérifie si la photo/vidéo n'a pas encore cliqué
+                likeCount += 1;
+                nbrLikeCard.textContent = `${likeCount}`;
+                nbrLikeCard.setAttribute('aria-label', `${likeCount} de like de la ${mediaSource}: ${title}`);
+                
+                hasLiked = true; // Marque la photo comme aimée
+                
+            }
+        });
+
+        // =======================================
+        //     ajout des balises à la card
+        // =======================================
+
         mediaCard.appendChild(linkMediaCard)
         mediaCard.appendChild(contentCardMedia);
         mediaCard.appendChild(contentCardMedia);
@@ -85,7 +105,6 @@ const pageMediaTemplate = async (data) => {
 
         return mediaCard;
     }
-
 
     return { photographerId, title, image, video, likes, id, getModelCardDOM }; 
 }
