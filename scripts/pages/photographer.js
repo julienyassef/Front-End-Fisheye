@@ -119,33 +119,29 @@ export const getPhotographer = async () => {
     
         options.forEach(option => {
             option.addEventListener('click', () => {
-                const critereDeTri = option.textContent.toLowerCase();
+                const criteria= option.textContent.toLowerCase();
                 
-            const contenuTrié = Array.from(contenu).sort((a, b) => {
+            const contenuSorted = Array.from(contenu).sort((a, b) => {
                    
-            if (critereDeTri === 'popularité') {
-                const populariteA = parseInt(a.querySelector('.media-photographer__card__content__like__nbr').textContent);
-                const populariteB = parseInt(b.querySelector('.media-photographer__card__content__like__nbr').textContent);
-                return populariteB - populariteA; 
-            } else if (critereDeTri === 'date') {
+            if (criteria === 'popularité') {
+                const popularityA = parseInt(a.querySelector('.media-photographer__card__content__like__nbr').textContent);
+                const popularityB = parseInt(b.querySelector('.media-photographer__card__content__like__nbr').textContent);
+                return popularityB - popularityA; 
+            } else if (criteria === 'date') {
                 // A venir
-            } else if (critereDeTri === 'titre') {
-                const titreA = a.querySelector('.media-photographer__card__content__description').textContent.toLowerCase();
-                const titreB = b.querySelector('.media-photographer__card__content__description').textContent.toLowerCase();
-                return titreA.localeCompare(titreB); 
+            } else if (criteria === 'titre') {
+                const titleA = a.querySelector('.media-photographer__card__content__description').textContent.toLowerCase();
+                const titleB = b.querySelector('.media-photographer__card__content__description').textContent.toLowerCase();
+                return titleA.localeCompare(titleB); 
             }
             return 0;
             });
 
             // Remplacez le contenu existant par le contenu trié
             contenu.forEach(element => element.remove());
-            contenuTrié.forEach(element => contenuContainer.appendChild(element));
+            contenuSorted.forEach(element => contenuContainer.appendChild(element));
         });
         });
-
-
-
-
 
  // initialisation de la lightbox uniquement quand les
  // media sont chargés
