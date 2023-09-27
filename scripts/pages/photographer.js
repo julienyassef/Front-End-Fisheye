@@ -128,17 +128,17 @@ export const getPhotographer = async () => {
                 const populariteB = parseInt(b.querySelector('.media-photographer__card__content__like__nbr').textContent);
                 return populariteB - populariteA; 
             } else if (critereDeTri === 'date') {
-                // Mettez ici la logique de tri par date
+                // A venir
             } else if (critereDeTri === 'titre') {
-                // Mettez ici la logique de tri par titre
+                const titreA = a.querySelector('.media-photographer__card__content__description').textContent.toLowerCase();
+                const titreB = b.querySelector('.media-photographer__card__content__description').textContent.toLowerCase();
+                return titreA.localeCompare(titreB); 
             }
-
-            // Vous devez retourner -1, 0 ou 1 en fonction de l'ordre de tri
+            return 0;
             });
 
             // Remplacez le contenu existant par le contenu trié
             contenu.forEach(element => element.remove());
-           
             contenuTrié.forEach(element => contenuContainer.appendChild(element));
         });
         });
