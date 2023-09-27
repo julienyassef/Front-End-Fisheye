@@ -115,30 +115,31 @@ export const getPhotographer = async () => {
         const contenu = document.querySelectorAll('.media-photographer__card');
         const contenuContainer = document.querySelector('.media-photographer');
   
+        
     
         options.forEach(option => {
             option.addEventListener('click', () => {
                 const critereDeTri = option.textContent.toLowerCase();
                 
-                
-                
             const contenuTrié = Array.from(contenu).sort((a, b) => {
-                    
+                   
             if (critereDeTri === 'popularité') {
-            
+                const populariteA = parseInt(a.querySelector('.media-photographer__card__content__like__nbr').textContent);
+                const populariteB = parseInt(b.querySelector('.media-photographer__card__content__like__nbr').textContent);
+                return populariteB - populariteA; 
             } else if (critereDeTri === 'date') {
-               
+                // Mettez ici la logique de tri par date
             } else if (critereDeTri === 'titre') {
-                
+                // Mettez ici la logique de tri par titre
             }
 
-          
+            // Vous devez retourner -1, 0 ou 1 en fonction de l'ordre de tri
             });
 
-            // Remplace le contenu existant par le contenu trié
+            // Remplacez le contenu existant par le contenu trié
             contenu.forEach(element => element.remove());
+           
             contenuTrié.forEach(element => contenuContainer.appendChild(element));
-
         });
         });
 
