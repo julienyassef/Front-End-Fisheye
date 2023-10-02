@@ -50,22 +50,22 @@ class Lightbox {
 
     next(e){
         e.preventDefault();
-        this.currentIndex = (this.currentIndex + 1) % this.mediaOfPhotographer.length;
-        const nextURL = this.mediaOfPhotographer[this.currentIndex];
+        this.currentIndex = (this.currentIndex + 1) % this.mediaOfPhotographerFlat.length;
+        const nextURL = this.mediaOfPhotographerFlat[this.currentIndex].href;
         this.loadContent(nextURL) 
     }
-
+    
     prev(e){
         e.preventDefault()
-        this.currentIndex = (this.currentIndex - 1 + this.mediaOfPhotographer.length) % this.mediaOfPhotographer.length;
-        const prevURL = this.mediaOfPhotographer[this.currentIndex];
+        this.currentIndex = (this.currentIndex - 1 + this.mediaOfPhotographerFlat.length) % this.mediaOfPhotographerFlat.length;
+        const prevURL = this.mediaOfPhotographerFlat[this.currentIndex].href;
         this.loadContent(prevURL); 
     }
 
     loadContent(url) {
         // Supprimez l'ancien contenu du Lightbox
         this.element.innerHTML = '';
-        const content = this.buildDOM(url);
+        const content = this.buildDOM(url, this.mediaOfPhotographerFlat);
         this.element.appendChild(content);
     }
     
@@ -74,7 +74,6 @@ class Lightbox {
         const dom = document.createElement('div');
         dom.classList.add('lightbox');
        
-
 
         if (url.endsWith('.mp4')) {
             dom.innerHTML = `<div class="lightbox__container">

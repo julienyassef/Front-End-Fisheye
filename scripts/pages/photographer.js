@@ -5,6 +5,8 @@ import { getPhotographers } from "../utils/getData.js"
 import  getCardWindowCount from '../utils/windowCount.js'
 import { displayModal } from '../utils/contactForm.js'
 import Lightbox from '../utils/lightbox.js'
+import { CountLikes } from '../utils/like.js'
+import { filterBy } from '../utils/FilterBy.js'
 
 // permet de récupérer l'ID du photographe sur l'url de la page 
 export const getID = () => {
@@ -78,72 +80,13 @@ export const getPhotographer = async () => {
         //      Count like page
         // =======================================
 
-        const likeHeart = document.querySelector('.media-photographer__card__content__like__heart');
-        const nbrLikeWindowCount= document.querySelector ('.media-photographer__window-count__like__nbr');
-        
-        
-        let total = 0;
-        const likes =  Array.from(document.querySelectorAll('.media-photographer__card__content__like__nbr'));
-        let isLiked = false;
+        CountLikes();
 
-        likes.forEach((like) => {
-            total += parseInt(like.innerHTML);
-        });
-        
-        nbrLikeWindowCount.textContent = total
-        nbrLikeWindowCount.setAttribute('aria-label',`${total} de like `);
-
-        likeHeart.addEventListener('click', () => {
-            if (!isLiked) {
-                total += 1;
-        
-            nbrLikeWindowCount.textContent = total;
-            nbrLikeWindowCount.setAttribute('aria-label', `${total} de like`);
-
-            likeHeart.removeEventListener('click', () => {});
-
-            isLiked = true;
-            }
-        });
-   
         // =======================================
         //      Menu trier par 
         // =======================================  
 
-        const menu = document.getElementById('menu-trier');
-        const options = menu.querySelectorAll('.select-container__menu__option');
-        const contenu = document.querySelectorAll('.media-photographer__card');
-        const contenuContainer = document.querySelector('.media-photographer');
-  
-    
-        options.forEach(option => {
-            option.addEventListener('click', () => {
-                const critereDeTri = option.textContent.toLowerCase();
-                
-                
-                
-            const contenuTrié = Array.from(contenu).sort((a, b) => {
-                    
-            if (critereDeTri === 'popularité') {
-            
-            } else if (critereDeTri === 'date') {
-               
-            } else if (critereDeTri === 'titre') {
-                
-            }
-
-          
-            });
-
-            // Remplace le contenu existant par le contenu trié
-            contenu.forEach(element => element.remove());
-            contenuTrié.forEach(element => contenuContainer.appendChild(element));
-
-        });
-        });
-
-
-
+        filterBy  ();
 
 
  // initialisation de la lightbox uniquement quand les

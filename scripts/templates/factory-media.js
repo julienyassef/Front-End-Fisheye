@@ -2,7 +2,7 @@ import { getID } from "../pages/photographer.js";
 import { getPhotographerFromID } from "../utils/getData.js";
 
 const pageMediaTemplate = async (data) => {
-    const { photographerId, title, image, video, likes, id } = data;
+    const { photographerId, title, image, video, likes, id, date } = data;
 
     // on veut récupérer le nom du photographe qui a l'id de l'url
     const idFromUrl = getID()
@@ -24,6 +24,8 @@ const pageMediaTemplate = async (data) => {
 
         const mediaCard = document.createElement('article');
         mediaCard.classList.add('media-photographer__card');
+
+        mediaCard.setAttribute('date', date)
 
         const linkMediaCard = document.createElement('a');
         linkMediaCard.classList.add('media-photographer__a');
@@ -71,25 +73,6 @@ const pageMediaTemplate = async (data) => {
         heartCard.classList.add('media-photographer__card__content__like__heart');
         heartCard.setAttribute ('aria-label', 'icon coeur');
         
-
-        // =======================================
-        //      1 like par photo/vidéo
-        // =======================================
-
-        let likeCount = likes;
-        let hasLiked = false; 
-
-        
-        heartCard.addEventListener('click', () => {
-            if (!hasLiked) { // Vérifie si la photo/vidéo n'a pas encore cliqué
-                likeCount += 1;
-                nbrLikeCard.textContent = `${likeCount}`;
-                nbrLikeCard.setAttribute('aria-label', `${likeCount} de like de la ${mediaSource}: ${title}`);
-                
-                hasLiked = true; // Marque la photo comme aimée
-                
-            }
-        });
 
         // =======================================
         //     ajout des balises à la card
