@@ -9,13 +9,13 @@ export const filterBy= () => {
     const arrow = document.querySelector('.select-container__arrow-svg');
     const border1 = document.querySelector('.select-container__menu__border');
     const border2 = document.querySelector('.select-container__menu__border2');
-
-arrow.addEventListener('click', () => {
-    arrow.classList.toggle('select-container__arrow-svg__active');
-    optionDate.classList.toggle('select-container__option__active');
-    optionTitle.classList.toggle('select-container__option__active');
-    border1.classList.toggle('select-container__menu__border__active');
-    border2.classList.toggle('select-container__menu__border__active'); 
+    
+    arrow.addEventListener('click', () => {
+        arrow.classList.toggle('select-container__arrow-svg__active');
+        optionDate.classList.toggle('select-container__option__active');
+        optionTitle.classList.toggle('select-container__option__active');
+        border1.classList.toggle('select-container__menu__border__active');
+        border2.classList.toggle('select-container__menu__border__active'); 
 });
 
     options.forEach(option => {
