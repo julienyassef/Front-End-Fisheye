@@ -15,11 +15,9 @@
     </header>
     <main id="main">
       <div class="header-profil"></div>
-
-
-      <div class="select-container">
+      <div  class="select-container">
         <h2 class="select-container__title">Trier par :</h2>
-        <div class="select-container__arrow">
+        <div role="button" class="select-container__arrow" aria-label="Déplier le menu de tri">
           <svg class="select-container__arrow-svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
             <g clip-path="url(#clip0_171634_75)">
               <path d="M9.88 20.5466L16 14.44L22.12 20.5466L24 18.6666L16 10.6666L8 18.6666L9.88 20.5466Z" fill="white"/>
@@ -31,17 +29,14 @@
             </defs>
           </svg>
         </div>
-        <div class="select-container__menu" id="menu-trier">
-          <div class="select-container__menu__option select-container__menu__option__popularity">Popularité</div>
+        <div class="select-container__menu" id="menu-trier"> 
+          <div role="button" class="select-container__menu__option select-container__menu__option__popularity" aria-label="Trier par popularité">Popularité</div>
           <div class="select-container__menu__border"></div>
-          <div class="select-container__menu__option select-container__menu__option__date">Date</div>
-          <div class="select-container__menu__border"></div>
-          <div class="select-container__menu__option select-container__menu__option__title" >Titre</div>   
+          <div role="button" class="select-container__menu__option select-container__menu__option__date" aria-label="Trier par date">Date</div>
+          <div class="select-container__menu__border2"></div>
+          <div role="button" class="select-container__menu__option select-container__menu__option__title" aria-label="Trier par titre" >Titre</div>   
         </div>
       </div>
-
-
-
      <div class="media-photographer"></div>
      <div id="lightbox"></div>
     </main>

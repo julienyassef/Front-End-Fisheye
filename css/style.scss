@@ -172,25 +172,55 @@ h1 {
     &__arrow {
         position: absolute;
         left: 310px;
-        top: 20px   
+        top: 20px;
+        rotate: 180deg; 
+        cursor: pointer; 
+        transition: transform 0.3s ease; 
     }
+    
     &__menu {
         font-size: 20px;
         font-weight: bold;
         color: white;
         padding: 11px;
-        width: 170px;
-        height: 170px;
-        border: none;
         background-color: #901C1C;
         border-radius: 5px;
         cursor: pointer;
         &__option{ 
             padding: 15px 10px; 
+            &__popularity {
+                border-radius: 5px 5px 0px 0px;
+                width: 170px;
+                height: 30px;
+            }
+            &__date {
+                display: none;
+            }
+            &__title {
+                display: none;
+                border-radius: 0px 0px 5px 5px;
+            }
         }
         &__border {
             border-top: 2px solid white; 
+            display: none;
         }  
     }
 }
 
+
+
+.select-container__arrow-svg__active {
+    rotate:180deg;
+  }
+
+.select-container__option__active {
+    display: block;
+    background-color: #901C1C;
+    width: 170px;
+    padding: 15px 10px; 
+}
+
+.select-container__menu__border__active {
+    display: block;
+}
