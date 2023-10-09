@@ -67,6 +67,36 @@ export const filterBy = () => {
     });
   });
 
+// gestion clavier enter sur la fleche
+  arrow.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" || e.keyCode === 13) {
+      const clickEvent = new MouseEvent("click", {
+        bubbles: true,
+        cancelable: true,
+        view: window
+      });
+      // Déclencher l'événement de clic sur l'élément "arrow".
+      arrow.dispatchEvent(clickEvent);
+    }
+  });
+  
+ 
+// gestion clavier enter sur les options
+  options.forEach((option) => {
+    option.addEventListener("keydown", (e) => {
+      if (e.key ==="Enter" || e.keyCode === 13) {
+        const clickEvent = new MouseEvent("click", {
+          bubbles: true,
+          cancelable: true,
+          view: window
+        });
+  
+        // Déclencher l'événement de clic sur l'élément.
+        option.dispatchEvent(clickEvent);
+      } 
+    });
+  });
+
 // gestion du tri lorsque l'on clique sur une option
   options.forEach((option) => {
     option.addEventListener("click", () => {
