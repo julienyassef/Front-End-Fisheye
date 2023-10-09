@@ -9,6 +9,9 @@ export const filterBy = () => {
   const arrow = document.querySelector(".select-container__arrow-svg");
   const borders = document.querySelectorAll(".select-container__menu__border");
 
+
+
+  //  gestion du click sur la fleche en svg peu importe l'option sur laquel on se situe
   arrow.addEventListener("click", () => {
   
       if (arrow.classList.contains("select-container__arrow-svg")) {
@@ -16,6 +19,7 @@ export const filterBy = () => {
         arrow.classList.remove("select-container__arrow-svg");
         optionDate.classList.add("select-container__option__active");
         optionTitle.classList.add("select-container__option__active");
+        optionPopularity.classList.remove("select-container__option__deled");
         borders.forEach((border) => {
           border.classList.add("select-container__menu__border__active");
         });
@@ -30,16 +34,32 @@ export const filterBy = () => {
       }
   });
 
-//  optionPopularity.classList.remove("select-container__option__deled");
-
+// gestion du click sur les options
   options.forEach((select) => {
     select.addEventListener("click", () => {
       const criteria = select.textContent.toLowerCase();
 
       if (criteria === "titre") {
         arrow.classList.remove("select-container__arrow-svg__active");
+        arrow.classList.add("select-container__arrow-svg");
         optionDate.classList.remove("select-container__option__active");
-        optionPopularity.classList.toggle("select-container__option__deled");
+        optionPopularity.classList.add("select-container__option__deled");
+        borders.forEach((border) => {
+          border.classList.remove("select-container__menu__border__active");
+        });
+      } else if (criteria === "date") {
+        arrow.classList.remove("select-container__arrow-svg__active");
+        arrow.classList.add("select-container__arrow-svg");
+        optionTitle.classList.remove("select-container__option__active");
+        optionPopularity.classList.add("select-container__option__deled");
+        borders.forEach((border) => {
+          border.classList.remove("select-container__menu__border__active");
+        });
+      } if (criteria === "popularité") {
+        arrow.classList.remove("select-container__arrow-svg__active");
+        arrow.classList.add("select-container__arrow-svg");
+        optionDate.classList.remove("select-container__option__active");
+        optionTitle.classList.remove("select-container__option__active");
         borders.forEach((border) => {
           border.classList.remove("select-container__menu__border__active");
         });
@@ -47,6 +67,7 @@ export const filterBy = () => {
     });
   });
 
+// gestion du tri lorsque l'on clique sur une option
   options.forEach((option) => {
     option.addEventListener("click", () => {
       const criteria = option.textContent.toLowerCase();// pour avoir le texte de l'option en miniscule
