@@ -16,7 +16,7 @@
     <main id="main">
       <div class="header-profil"></div>
       <div class="select-container">
-        <h2 class="select-container__title">Trier par :</h2>
+        <h2 class="select-container__title" >Trier par :</h2>
         <div class="select-container__arrow" aria-label="Déplier le menu de tri">
           <svg class="select-container__arrow-svg" tabindex="0" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
             <g clip-path="url(#clip0_171634_75)">
@@ -44,47 +44,51 @@
 			<div class="modal">
 				<header class="modal__header">
             <h2 class="modal__header__title">Contactez-moi</h2>
-            <img class="modal__header__cross-close" src="assets/icons/close.svg" onclick="closeModal()" tabindex="1"/>
+            <img class="modal__header__cross-close" alt="bouton fermer la modal" src="assets/icons/close.svg" onclick="closeModal()" tabindex="1"/>
         </header>
         <div class="modal__name"></div>
 				<form class="modal__form">
-					<div class="modal__form__first" tabindex="1" >
-                <label for="first">Prénom</label>
+					<div class="modal__form__first"  >
+                <label for="first" >Prénom</label>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
                   minlength="2"
+                  tabindex="1"
                 />
               </div>
-              <div class="modal__form__last" tabindex="1" >
+              <div class="modal__form__last" >
                 <label for="last">Nom</label>
                 <input
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
+                  tabindex="1"
                 />
               </div>
-              <div class="modal__form__email"tabindex="1"  >
+              <div class="modal__form__email"  >
                 <label for="email">E-mail</label>
                 <input
                   class="text-control"
                   type="email"
                   id="email"
                   name="email"
+                  tabindex="1"
                 />
               </div>
-              <div class="modal__form__message" tabindex="1" >
+              <div class="modal__form__message"  >
               <label for="message">Votre message</label>
               <textarea
               class="text-control"
               type="message"  
               id="message"
+              tabindex="1"
               name="message"></textarea>
             </div>
-          <button class="contact_button" tabindex="1" >Envoyer</button>
+          <button class="contact_button" aria-label="bouton envoyer le formulaire" tabindex="1" >Envoyer</button>
 				</form>
 			</div>
 		</div>

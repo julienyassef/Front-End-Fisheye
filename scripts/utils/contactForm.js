@@ -10,7 +10,6 @@ const inputEmail = document.querySelector("#email");
 const inputMessage = document.querySelector("#message");
 const cross = document.querySelector(".modal__header__cross-close");
 
-
 // =====================
 //        GLOBALE
 // =====================
@@ -63,6 +62,7 @@ const displayModal = () => {
     closeModal();
   };
 
+  
 // =================================
 //      VALIDATION FORMULAIRE
 // =================================
