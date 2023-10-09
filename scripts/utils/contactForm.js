@@ -9,6 +9,8 @@ const inputLast = document.querySelector("#last");
 const inputEmail = document.querySelector("#email");
 const inputMessage = document.querySelector("#message");
 const cross = document.querySelector(".modal__header__cross-close");
+const initialFocusElement = document.querySelector(".modal__header__cross-close");
+
 
 // =====================
 //        GLOBALE
@@ -28,6 +30,7 @@ const RESULTS = {
 // function launch modal form
 const displayModal = () => {
   modal.style.display = 'block';
+  initialFocusElement.focus();
   };
   // function close modal event
   const closeModal = () => {
