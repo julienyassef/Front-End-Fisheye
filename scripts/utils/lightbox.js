@@ -16,7 +16,8 @@ class Lightbox {
         
         const element = this.buildDOM(url, mediaOfPhotographer);
         this.mediaOfPhotographerFlat = mediaOfPhotographer;
-        this.currentIndex = mediaOfPhotographerFlat.findIndex(media => media.image === url || media.video === url);
+        this.currentIndex = mediaOfPhotographerFlat.findIndex(media => media === url);
+        
         this.element = element;
         document.body.appendChild(element);
         document.addEventListener('keydown', this.onKeyDown.bind(this));
@@ -51,6 +52,7 @@ class Lightbox {
     next(e){
         e.preventDefault();
         this.currentIndex = (this.currentIndex + 1) % this.mediaOfPhotographerFlat.length;
+        console.log(this.currentIndex)
         const nextURL = this.mediaOfPhotographerFlat[this.currentIndex].href;
         this.loadContent(nextURL) 
     }

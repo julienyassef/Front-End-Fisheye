@@ -15,14 +15,14 @@
     </header>
     <main id="main">
       <div class="header-profil"></div>
-      <div  class="select-container">
-        <h2 class="select-container__title">Trier par :</h2>
-        <div role="button" class="select-container__arrow" aria-label="Déplier le menu de tri">
-          <svg class="select-container__arrow-svg" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+      <div class="select-container">
+        <h2 class="select-container__title" >Trier par :</h2>
+        <div class="select-container__arrow" >
+          <svg class="select-container__arrow-svg" aria-label="Déplier le menu de tri" tabindex="0" xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
             <g clip-path="url(#clip0_171634_75)">
               <path d="M9.88 20.5466L16 14.44L22.12 20.5466L24 18.6666L16 10.6666L8 18.6666L9.88 20.5466Z" fill="white"/>
             </g>
-            <defs>
+            <defs>  
               <clipPath id="clip0_171634_75">
                 <rect width="32" height="32" fill="white" transform="translate(32 32) rotate(-180)"/>
               </clipPath>
@@ -30,11 +30,11 @@
           </svg>
         </div>
         <div class="select-container__menu" id="menu-trier"> 
-          <div role="button" class="select-container__menu__option select-container__menu__option__popularity" aria-label="Trier par popularité">Popularité</div>
+          <div class="select-container__menu__option select-container__menu__option__popularity" tabindex="0" aria-label="Trier par popularité">Popularité</div>
           <div class="select-container__menu__border"></div>
-          <div role="button" class="select-container__menu__option select-container__menu__option__date" aria-label="Trier par date">Date</div>
-          <div class="select-container__menu__border2"></div>
-          <div role="button" class="select-container__menu__option select-container__menu__option__title" aria-label="Trier par titre" >Titre</div>   
+          <div class="select-container__menu__option select-container__menu__option__date" tabindex="0" aria-label="Trier par date">Date</div>
+          <div class="select-container__menu__border"></div>
+          <div class="select-container__menu__option select-container__menu__option__title" tabindex="0" aria-label="Trier par titre" >Titre</div>   
         </div>
       </div>
      <div class="media-photographer"></div>
@@ -44,51 +44,55 @@
 			<div class="modal">
 				<header class="modal__header">
             <h2 class="modal__header__title">Contactez-moi</h2>
-            <img class="modal__header__cross-close" src="assets/icons/close.svg" onclick="closeModal()" />
+            <img class="modal__header__cross-close" alt="bouton fermer la modal" src="assets/icons/close.svg" tabindex="1"/>
         </header>
         <div class="modal__name"></div>
 				<form class="modal__form">
-					<div class="modal__form__first">
-                <label for="first">Prénom</label>
+					<div class="modal__form__first"  >
+                <label for="first" >Prénom</label>
                 <input
                   class="text-control"
                   type="text"
                   id="first"
                   name="first"
                   minlength="2"
+                  tabindex="1"
                 />
               </div>
-              <div class="modal__form__last">
+              <div class="modal__form__last" >
                 <label for="last">Nom</label>
                 <input
                   class="text-control"
                   type="text"
                   id="last"
                   name="last"
+                  tabindex="1"
                 />
               </div>
-              <div class="modal__form__email" >
+              <div class="modal__form__email"  >
                 <label for="email">E-mail</label>
                 <input
                   class="text-control"
                   type="email"
                   id="email"
                   name="email"
+                  tabindex="1"
                 />
               </div>
-              <div class="modal__form__message">
+              <div class="modal__form__message"  >
               <label for="message">Votre message</label>
               <textarea
               class="text-control"
-              type="message"
+              type="message"  
               id="message"
+              tabindex="1"
               name="message"></textarea>
             </div>
-          <button class="contact_button">Envoyer</button>
+          <button class="contact_button" aria-label="bouton envoyer le formulaire" tabindex="1" >Envoyer</button>
 				</form>
 			</div>
 		</div>
-    <script src="/scripts/pages/photographer.js" type="module"></script>
-    <script src="/scripts/utils/contactForm.js" type="module"></script>
+    <script src="./scripts/pages/photographer.js" type="module"></script>
+    <script src="./scripts/utils/contactForm.js" type="module"></script>
   </body>
 </html>

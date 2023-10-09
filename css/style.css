@@ -206,6 +206,10 @@ h1 {
   rotate: 180deg;
 }
 
+.select-container__option__deled {
+  display: none;
+}
+
 .select-container__option__active {
   display: block;
   background-color: #901C1C;

@@ -2,7 +2,7 @@
 import { displayModal } from '../utils/contactForm.js';
 
 const pagePhotographerTemplate = (data) => {
-    const { name, portrait, city, country, tagline, price, id } = data;
+    const { name, portrait, city, country, tagline, price} = data;
 
     const picture = `assets/photographers/${portrait}`;
 

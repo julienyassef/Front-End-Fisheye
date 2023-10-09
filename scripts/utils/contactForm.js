@@ -1,7 +1,3 @@
-import { getPhotographers } from "../utils/getData.js"
-
-
-
 
 // =====================
 //     DOM Elements
@@ -13,6 +9,7 @@ const inputLast = document.querySelector("#last");
 const inputEmail = document.querySelector("#email");
 const inputMessage = document.querySelector("#message");
 const cross = document.querySelector(".modal__header__cross-close");
+const initialFocusElement = document.querySelector(".modal__header__cross-close");
 
 
 // =====================
@@ -33,6 +30,7 @@ const RESULTS = {
 // function launch modal form
 const displayModal = () => {
   modal.style.display = 'block';
+  initialFocusElement.focus();
   };
   // function close modal event
   const closeModal = () => {
@@ -67,6 +65,7 @@ const displayModal = () => {
     closeModal();
   };
 
+  
 // =================================
 //      VALIDATION FORMULAIRE
 // =================================
@@ -74,12 +73,7 @@ const displayModal = () => {
 
 document.querySelector(".contact_button").addEventListener("click", displayModal);
 cross.addEventListener('click', closeModal)
- 
 form.addEventListener("submit", submit);
-
-
-
-
 
 
 
