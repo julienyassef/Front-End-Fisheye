@@ -70,12 +70,7 @@ const displayModal = () => {
 
 document.querySelector(".contact_button").addEventListener("click", displayModal);
 cross.addEventListener('click', closeModal)
- 
 form.addEventListener("submit", submit);
-
-
-
-
 
 
 
