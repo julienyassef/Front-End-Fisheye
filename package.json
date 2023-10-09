@@ -1,9 +1,15 @@
 {
-  "devDependencies": {
-    "eslint": "^8.51.0",
-    "eslint-plugin-react": "^7.33.2"
-  },
+  "name": "julienyassef-projet-6-site-accessible-plateforme-photographe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
   "scripts": {
-    "lint": "eslint *.js"
+    "lint":"eslint --ext .js, .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.51.0"
   }
 }

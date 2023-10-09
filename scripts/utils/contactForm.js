@@ -1,7 +1,3 @@
-import { getPhotographers } from "../utils/getData.js"
-
-
-
 
 // =====================
 //     DOM Elements

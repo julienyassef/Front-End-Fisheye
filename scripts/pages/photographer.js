@@ -3,7 +3,6 @@ import pagePhotographerTemplate from '../templates/factory-photographer.js'
 import pageMediaTemplate from '../templates/factory-media.js'
 import { getPhotographers } from "../utils/getData.js"
 import  getCardWindowCount from '../utils/windowCount.js'
-import { displayModal } from '../utils/contactForm.js'
 import Lightbox from '../utils/lightbox.js'
 import { CountLikes } from '../utils/like.js'
 import { filterBy } from '../utils/FilterBy.js'
@@ -59,7 +58,7 @@ export const getPhotographer = async () => {
             const mediaModel = await pageMediaTemplate(media);
             const mediaCardDOM = mediaModel.getModelCardDOM();
             mediaSection.appendChild(mediaCardDOM);   
-        };
+        }
 
         // =======================================
         //      modal ajout name photographer

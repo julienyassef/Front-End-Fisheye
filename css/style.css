@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("photographer.css");
 body {
   font-family: "DM Sans", sans-serif;
@@ -204,6 +205,17 @@ h1 {
 
 .select-container__arrow-svg__active {
   rotate: 180deg;
+}
+
+.select-container__option__deled {
+  display: none;
+}
+
+.select-container__option__startingPopularité {
+  display: block;
+  background-color: #901C1C;
+  width: 170px;
+  padding: 15px 10px;
 }
 
 .select-container__option__active {
