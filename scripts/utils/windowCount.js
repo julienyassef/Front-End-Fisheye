@@ -15,7 +15,7 @@ const getCardWindowCount = (photographers) => {
             heartWindowCount.src = 'assets/icons/heartblack.svg'; 
             heartWindowCount.alt = "Heart Icon";
             heartWindowCount.classList.add('media-photographer__window-count__like__heart');
-            heartWindowCount.setAttribute ('aria-label', 'icon coeur');
+            heartWindowCount.setAttribute ('aria-label', "icone d'un coeur");
     
     
         const priceDay= document.createElement ('div');

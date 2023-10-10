@@ -86,9 +86,9 @@ export const getPhotographer = async () => {
         filterBy  ();
 
 
- // initialisation de la lightbox uniquement quand les
- // media sont chargés
- Lightbox.init()
+        // initialisation de la lightbox uniquement quand les
+        // media sont chargés
+        Lightbox.init()
 }
 
 

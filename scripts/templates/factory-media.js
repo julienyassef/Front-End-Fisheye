@@ -80,31 +80,19 @@ const pageMediaTemplate = async (data) => {
         heartCard.setAttribute('tabindex', '0');
         heartCard.alt = "";
 
-        heartCard.addEventListener('focus', () => {
-            // Récupérez la valeur actuelle de nbrLikeCard
-            const currentLikes = parseInt(nbrLikeCard.textContent);
-            
-            // Comparez la valeur actuelle avec likes
-            if (currentLikes === likes) {
-              heartCard.alt = "Cliquez pour ajouter 1 like";
-            } else {
-              heartCard.alt = "Cliquez pour retirer 1 like";
-            }
-          });
-        //   // si cliquez, le lecteur d'ecran en repete pas sa situation
-        // heartCard.addEventListener('click', () => {
-        // heartCard.setAttribute('aria-hidden', 'true');
-        // heartCard.setAttribute('aria-live', 'vous avez ajouter un like');
-        // });
-            
-
-        // // Ajoutez un gestionnaire d'événements pour gérer le focus
         // heartCard.addEventListener('focus', () => {
-        // heartCard.setAttribute('aria-hidden', 'false'); // Affiche le commentaire lorsque l'image a le focus
-        // });
-
-
+        //     // Récupérez la valeur actuelle de nbrLikeCard
+        //     const currentLikes = parseInt(nbrLikeCard.textContent);
+            
+        //     // Comparez la valeur actuelle avec likes
+        //     if (currentLikes === likes) {
+        //       heartCard.setAttribute = ("aria-live", "Cliquez pour ajouter 1 like");
+        //     } else {
+        //       heartCard.alt = "Cliquez pour retirer 1 like";
+        //     }
          
+        //   });
+
         // =======================================
         //     ajout des balises à la card
         // =======================================
