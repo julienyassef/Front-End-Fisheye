@@ -10,12 +10,14 @@ const photographerTemplate = (data) => {
     // création partie link clicable avec photo et nom
         const linkPagePhotographer = document.createElement( 'a' );
             linkPagePhotographer.classList.add('card-photographer__link')
-            linkPagePhotographer.href = `./photographer.html?id=${id}`; 
-
+            linkPagePhotographer.href = `./photographer.html?id=${id}`;
+            linkPagePhotographer.setAttribute('aria-label', `Page du photographe : ${name}`); 
+            
         const img = document.createElement( 'img' );
             img.src = picture;
             img.alt = name;
             img.classList.add('card-photographer__photo')
+            img.setAttribute('aria-label', `Photo du photographe : ${name}`);
         
         const h2 = document.createElement( 'h2' );
             h2.textContent = name;
@@ -34,7 +36,7 @@ const photographerTemplate = (data) => {
         const pTagline = document.createElement( 'p' );
             pTagline.textContent = tagline;
             pTagline.classList.add('card-photographer__tgaline');
-            pTagline.setAttribute('aria-label', `Slogan du photographe : ${pTagline}`);
+            pTagline.setAttribute('aria-label', `Slogan du photographe : ${tagline}`);
 
         const pPrice = document.createElement( 'p' );
             pPrice.textContent = `${price}€ / jour`;

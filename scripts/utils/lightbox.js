@@ -2,13 +2,22 @@
 class Lightbox {
     static init() {
         const links = Array.from(document.querySelectorAll('.media-photographer__a'))
-        // console.log(links)
         const gallery = links.map(link => ({href: link.getAttribute('href'), title: link.getAttribute('title')}))
+        console.log(gallery)
 
         links.forEach(link => link.addEventListener('click', e => {
             e.preventDefault()
             new Lightbox(e.currentTarget.getAttribute('href'), gallery);
         }));
+    }
+    // ouverture du lightbox, focus sur le premier élément
+    focusOnOpen() {
+        if (!this.element.contains(document.activeElement)) {
+            const firstFocusableElement = this.element.querySelector('.lightbox__close');
+            if (firstFocusableElement) {
+                firstFocusableElement.focus();
+            }
+        }
     }
     
     constructor(url, mediaOfPhotographer) {
@@ -21,6 +30,8 @@ class Lightbox {
         this.element = element;
         document.body.appendChild(element);
         document.addEventListener('keydown', this.onKeyDown.bind(this));
+
+        this.focusOnOpen();
     }
     
     onKeyDown(e) {
@@ -52,7 +63,6 @@ class Lightbox {
     next(e){
         e.preventDefault();
         this.currentIndex = (this.currentIndex + 1) % this.mediaOfPhotographerFlat.length;
-        console.log(this.currentIndex)
         const nextURL = this.mediaOfPhotographerFlat[this.currentIndex].href;
         this.loadContent(nextURL) 
     }
@@ -98,6 +108,7 @@ class Lightbox {
             </div>
             </div>`;
         }
+        
 
         dom.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this))
         dom.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this))

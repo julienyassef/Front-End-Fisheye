@@ -50,8 +50,6 @@ export const getPhotographer = async () => {
         // Filtrer les médias du photographe actuel 
         const mediaOfPhotographer = medias.filter(media => media.photographerId == photographerId);
 
-        // console.log(mediaOfPhotographer);
-
         // Pour chaque média du photographe actuel :
             for (let i = 0; i < mediaOfPhotographer.length; i++) {
             const media = mediaOfPhotographer[i];
@@ -88,9 +86,9 @@ export const getPhotographer = async () => {
         filterBy  ();
 
 
- // initialisation de la lightbox uniquement quand les
- // media sont chargés
- Lightbox.init()
+        // initialisation de la lightbox uniquement quand les
+        // media sont chargés
+        Lightbox.init()
 }
 
 
