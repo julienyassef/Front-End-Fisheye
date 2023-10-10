@@ -3,6 +3,7 @@ class Lightbox {
     static init() {
         const links = Array.from(document.querySelectorAll('.media-photographer__a'))
         const gallery = links.map(link => ({href: link.getAttribute('href'), title: link.getAttribute('title')}))
+        console.log(gallery)
 
         links.forEach(link => link.addEventListener('click', e => {
             e.preventDefault()
@@ -18,8 +19,6 @@ class Lightbox {
             }
         }
     }
-    
-    
     
     constructor(url, mediaOfPhotographer) {
         const mediaOfPhotographerFlat = mediaOfPhotographer.map(media => media.href).flat();
@@ -64,7 +63,6 @@ class Lightbox {
     next(e){
         e.preventDefault();
         this.currentIndex = (this.currentIndex + 1) % this.mediaOfPhotographerFlat.length;
-        console.log(this.currentIndex)
         const nextURL = this.mediaOfPhotographerFlat[this.currentIndex].href;
         this.loadContent(nextURL) 
     }
@@ -110,6 +108,7 @@ class Lightbox {
             </div>
             </div>`;
         }
+        
 
         dom.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this))
         dom.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this))

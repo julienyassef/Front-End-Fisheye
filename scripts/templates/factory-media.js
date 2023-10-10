@@ -39,6 +39,7 @@ const pageMediaTemplate = async (data) => {
             img.classList.add('media-photographer__card__img');
             linkMediaCard.appendChild(img);
             linkMediaCard.href = `Sample Photos/${photographerName}/${image}`;
+            linkMediaCard.title= title; 
             img.setAttribute('tabindex', '1');
             mediaCard.setAttribute('aria-label', `photo représentant : ${title}`);
         } else if (mediaType === "video") {
@@ -48,6 +49,7 @@ const pageMediaTemplate = async (data) => {
             videoPreview.classList.add('media-photographer__card__video');
             linkMediaCard.appendChild(videoPreview);
             linkMediaCard.href = `Sample Photos/${photographerName}/${video}`;
+            linkMediaCard.title= title; 
             videoPreview.setAttribute('tabindex', '1');
             mediaCard.setAttribute('aria-label', `vidéo de : ${title}`);
         }
