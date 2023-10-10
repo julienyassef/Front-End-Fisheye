@@ -40,21 +40,15 @@ export const CountLikes = () => {
             }
           });
 
-          // utilisation de la touche enter pour valider le like
+          // permet lors de la navigation au clavier de valider le like, enter se comporte comme un click
         heart.addEventListener('keydown', (e) => {
-            if (e.key === "Enter" || e.keyCode === 13) {
-                if (heart.classList.contains('liked')) {
-                    total -= 1;
-                    heart.classList.remove('liked');
-                    nbrLike.textContent = parseInt(nbrLike.textContent) - 1;
-                    heart.alt = "Like retiré, cliquez pour ajouter un like";
-                } else {
-                    total += 1;
-                    heart.classList.add('liked');
-                    nbrLike.textContent = parseInt(nbrLike.textContent) + 1;
-                    heart.alt = "Like ajouté, cliquez pour retirer un like";
-                }
-
+            if (e.key ==="Enter" || e.keyCode === 13) {
+                const clickEvent = new MouseEvent("click", {
+                  bubbles: true,
+                  cancelable: true,
+                  view: window
+                });
+                heart.dispatchEvent(clickEvent);
                 totalLikes.textContent = total;
                 totalLikes.setAttribute('aria-label', `${total} de like`);
             }
