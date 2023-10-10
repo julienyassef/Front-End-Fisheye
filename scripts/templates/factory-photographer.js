@@ -32,7 +32,7 @@ const pagePhotographerTemplate = (data) => {
         const pTagline = document.createElement( 'p' );
             pTagline.textContent = tagline;
             pTagline.classList.add('photograph-header__profil__content__tgaline');
-            pTagline.setAttribute('aria-label', `Slogan du photographe : ${pTagline}`);
+            pTagline.setAttribute('aria-label', `Slogan du photographe : ${tagline}`);
 
         const contactButton = document.createElement('button');
             contactButton.textContent = 'Contactez-moi';
@@ -43,6 +43,7 @@ const pagePhotographerTemplate = (data) => {
             img.src = picture;
             img.alt = name;
             img.classList.add('photograph-header__photo')
+            img.setAttribute('aria-label', `Photo du photographe : ${name}`);
         
         
             photographHeader.appendChild(photographHeaderProfil)

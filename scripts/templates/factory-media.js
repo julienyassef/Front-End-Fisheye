@@ -25,11 +25,12 @@ const pageMediaTemplate = async (data) => {
         const mediaCard = document.createElement('article');
         mediaCard.classList.add('media-photographer__card');
         mediaCard.setAttribute('date', date);
-        mediaCard.setAttribute('aria-label', `Media de : ${title}`);
-
+        mediaCard.setAttribute('tabindex', '0');
+       
         const linkMediaCard = document.createElement('a');
         linkMediaCard.classList.add('media-photographer__a');
-        linkMediaCard.setAttribute('title', title);
+        linkMediaCard.setAttribute('tabindex', '0');
+       
         
 
         if (mediaType === "image") {
@@ -37,9 +38,10 @@ const pageMediaTemplate = async (data) => {
             img.src = mediaSource;
             img.alt = title;
             img.classList.add('media-photographer__card__img');
-            img.setAttribute('alt', `photo de : ${title}`);
             linkMediaCard.appendChild(img);
             linkMediaCard.href = `Sample Photos/${photographerName}/${image}`;
+            img.setAttribute('tabindex', '1');
+            mediaCard.setAttribute('aria-label', `photo représentant : ${title}`);
         } else if (mediaType === "video") {
             const videoCard = document.createElement('video');
             videoCard.controls = true;
@@ -47,33 +49,62 @@ const pageMediaTemplate = async (data) => {
             videoCard.alt = title;
             videoCard.type = "video/mp4";
             videoCard.classList.add('media-photographer__card__video');
-            videoCard.setAttribute('alt', `vidéo de : ${title}`);
             linkMediaCard.appendChild(videoCard);
+            videoCard.setAttribute('tabindex', '1');
             linkMediaCard.href =`Sample Photos/${photographerName}/${video}`;
+            mediaCard.setAttribute('aria-label', `vidéo de : ${title}`);
         }
+
+        linkMediaCard.setAttribute('aria-label', `lien vers la ${mediaType}: ${title}` );
 
         const contentCardMedia = document.createElement ('div');
         contentCardMedia.classList.add('media-photographer__card__content');
+        contentCardMedia.setAttribute('tabindex', '0');
 
         const descriptionCard= document.createElement ('h3');
         descriptionCard.textContent = title;
-        descriptionCard.classList.add('media-photographer__card__content__description');
-
+        descriptionCard.classList.add('media-photographer__card__content__description'); 
+        descriptionCard.setAttribute('tabindex', '1');        
         const likeCard= document.createElement ('div');
         likeCard.classList.add('media-photographer__card__content__like');
 
         const nbrLikeCard= document.createElement ('div');
         nbrLikeCard.textContent = `${likes}`;
         nbrLikeCard.classList.add('media-photographer__card__content__like__nbr');
-        nbrLikeCard.setAttribute('aria-label', `${likes} de like de la ${mediaSource}: ${title}` );
+        nbrLikeCard.setAttribute('tabindex', '1');
+        nbrLikeCard.setAttribute('aria-label', `nombre de like : ${likes}`);
 
         const heartCard = document.createElement('img');
         heartCard.src = 'assets/icons/heart.svg'; 
-        heartCard.alt = "Heart Icon";
         heartCard.classList.add('media-photographer__card__content__like__heart');
-        heartCard.setAttribute ('aria-label', 'icon coeur');
-        
+        heartCard.setAttribute('tabindex', '0');
+        heartCard.alt = "";
 
+        heartCard.addEventListener('focus', () => {
+            // Récupérez la valeur actuelle de nbrLikeCard
+            const currentLikes = parseInt(nbrLikeCard.textContent);
+            
+            // Comparez la valeur actuelle avec likes
+            if (currentLikes === likes) {
+              heartCard.alt = "Cliquez pour ajouter 1 like";
+            } else {
+              heartCard.alt = "Cliquez pour retirer 1 like";
+            }
+          });
+        //   // si cliquez, le lecteur d'ecran en repete pas sa situation
+        // heartCard.addEventListener('click', () => {
+        // heartCard.setAttribute('aria-hidden', 'true');
+        // heartCard.setAttribute('aria-live', 'vous avez ajouter un like');
+        // });
+            
+
+        // // Ajoutez un gestionnaire d'événements pour gérer le focus
+        // heartCard.addEventListener('focus', () => {
+        // heartCard.setAttribute('aria-hidden', 'false'); // Affiche le commentaire lorsque l'image a le focus
+        // });
+
+
+         
         // =======================================
         //     ajout des balises à la card
         // =======================================
