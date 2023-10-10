@@ -53,7 +53,5 @@ export const CountLikes = () => {
                 totalLikes.setAttribute('aria-label', `${total} de like`);
             }
 });
-
-
     })
 }

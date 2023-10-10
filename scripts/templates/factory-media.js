@@ -31,7 +31,6 @@ const pageMediaTemplate = async (data) => {
         linkMediaCard.classList.add('media-photographer__a');
         linkMediaCard.setAttribute('tabindex', '0');
        
-        
 
         if (mediaType === "image") {
             const img = document.createElement('img');
@@ -43,15 +42,13 @@ const pageMediaTemplate = async (data) => {
             img.setAttribute('tabindex', '1');
             mediaCard.setAttribute('aria-label', `photo représentant : ${title}`);
         } else if (mediaType === "video") {
-            const videoCard = document.createElement('video');
-            videoCard.controls = true;
-            videoCard.src = mediaSource;
-            videoCard.alt = title;
-            videoCard.type = "video/mp4";
-            videoCard.classList.add('media-photographer__card__video');
-            linkMediaCard.appendChild(videoCard);
-            videoCard.setAttribute('tabindex', '1');
-            linkMediaCard.href =`Sample Photos/${photographerName}/${video}`;
+            const videoPreview = document.createElement('video');
+            videoPreview.src = mediaSource; 
+            videoPreview.alt = `Aperçu de la vidéo : ${title}`; 
+            videoPreview.classList.add('media-photographer__card__video');
+            linkMediaCard.appendChild(videoPreview);
+            linkMediaCard.href = `Sample Photos/${photographerName}/${video}`;
+            videoPreview.setAttribute('tabindex', '1');
             mediaCard.setAttribute('aria-label', `vidéo de : ${title}`);
         }
 
@@ -79,19 +76,6 @@ const pageMediaTemplate = async (data) => {
         heartCard.classList.add('media-photographer__card__content__like__heart');
         heartCard.setAttribute('tabindex', '0');
         heartCard.alt = "";
-
-        // heartCard.addEventListener('focus', () => {
-        //     // Récupérez la valeur actuelle de nbrLikeCard
-        //     const currentLikes = parseInt(nbrLikeCard.textContent);
-            
-        //     // Comparez la valeur actuelle avec likes
-        //     if (currentLikes === likes) {
-        //       heartCard.setAttribute = ("aria-live", "Cliquez pour ajouter 1 like");
-        //     } else {
-        //       heartCard.alt = "Cliquez pour retirer 1 like";
-        //     }
-         
-        //   });
 
         // =======================================
         //     ajout des balises à la card
