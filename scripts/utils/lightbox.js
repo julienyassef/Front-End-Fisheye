@@ -9,6 +9,17 @@ class Lightbox {
             new Lightbox(e.currentTarget.getAttribute('href'), gallery);
         }));
     }
+    // ouverture du lightbox, focus sur le premier élément
+    focusOnOpen() {
+        if (!this.element.contains(document.activeElement)) {
+            const firstFocusableElement = this.element.querySelector('.lightbox__close');
+            if (firstFocusableElement) {
+                firstFocusableElement.focus();
+            }
+        }
+    }
+    
+    
     
     constructor(url, mediaOfPhotographer) {
         const mediaOfPhotographerFlat = mediaOfPhotographer.map(media => media.href).flat();
@@ -20,6 +31,8 @@ class Lightbox {
         this.element = element;
         document.body.appendChild(element);
         document.addEventListener('keydown', this.onKeyDown.bind(this));
+
+        this.focusOnOpen();
     }
     
     onKeyDown(e) {
