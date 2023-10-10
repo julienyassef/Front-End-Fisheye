@@ -24,8 +24,8 @@ const pageMediaTemplate = async (data) => {
 
         const mediaCard = document.createElement('article');
         mediaCard.classList.add('media-photographer__card');
-
-        mediaCard.setAttribute('date', date)
+        mediaCard.setAttribute('date', date);
+        mediaCard.setAttribute('aria-label', `Media de : ${title}`);
 
         const linkMediaCard = document.createElement('a');
         linkMediaCard.classList.add('media-photographer__a');
@@ -85,6 +85,7 @@ const pageMediaTemplate = async (data) => {
         contentCardMedia.appendChild(likeCard);
         likeCard.appendChild(nbrLikeCard);
         likeCard.appendChild(heartCard);
+
 
         return mediaCard;
     }
