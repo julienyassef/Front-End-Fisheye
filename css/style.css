@@ -169,7 +169,7 @@ h1 {
   position: absolute;
   left: 310px;
   top: 20px;
-  rotate: 180deg;
+  transform: rotate(180deg);
   cursor: pointer;
   transition: transform 0.3s ease;
 }
@@ -203,7 +203,7 @@ h1 {
 }
 
 .select-container__arrow-svg__active {
-  rotate: 180deg;
+  transform: rotate(180deg);
 }
 
 .select-container__option__deled {

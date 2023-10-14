@@ -59,9 +59,9 @@ const pageMediaTemplate = async (data) => {
         const contentCardMedia = document.createElement ('div');
         contentCardMedia.classList.add('media-photographer__card__content');
         contentCardMedia.setAttribute('tabindex', '0');
-
         const descriptionCard= document.createElement ('h3');
         descriptionCard.textContent = title;
+
         descriptionCard.classList.add('media-photographer__card__content__description'); 
         descriptionCard.setAttribute('tabindex', '1');        
         const likeCard= document.createElement ('div');
