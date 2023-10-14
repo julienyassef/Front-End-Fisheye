@@ -11,9 +11,7 @@ const displayData = async(photographers) => {
         // Utilise un modèle de card pour créer une card pour chaque photographe.
         const photographerModel = photographerTemplate(photographer);
         // Obtient le contenu DOM de la card  à partir du modèle créé dans l'autre fichier js.
-        // console.log(photographerModel)
         const userCardDOM = photographerModel.getUserCardDOM();
-        // console.log(userCardDOM)
         //ajout la carte dans le DOM
         photographersSection.appendChild(userCardDOM);
     });
@@ -23,7 +21,6 @@ const init = async() => {
     // Récupère les datas des photographes
     const { photographers } = await getPhotographers();
     displayData(photographers);
-    console.log(photographers)
 }
 
 init();

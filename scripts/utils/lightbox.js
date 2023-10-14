@@ -3,7 +3,6 @@ class Lightbox {
     static init() {
         const links = Array.from(document.querySelectorAll('.media-photographer__a'))
         const gallery = links.map(link => ({href: link.getAttribute('href'), title: link.getAttribute('title')}))
-        console.log(gallery)
 
         links.forEach(link => link.addEventListener('click', e => {
             e.preventDefault()
