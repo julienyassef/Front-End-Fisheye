@@ -4,14 +4,17 @@ import { getPhotographerFromID } from "../utils/getData.js";
 const pageMediaTemplate = async (data) => {
     const { photographerId, title, image, video, likes, id, date } = data;
 
-    // on veut récupérer le nom du photographe qui a l'id de l'url
+   // Obtenir l'ID du photographe à partir de l'URL
     const idFromUrl = getID()
+    // Récupérer les données du photographe en utilisant l'ID de l'URL
     const photographer = await getPhotographerFromID(idFromUrl);
+     // Extraire le nom du photographe des données du photographe
     const photographerName = photographer.name.split(' ')[0].replace('-', ' ')
 
     let mediaType;
     let mediaSource;
 
+    // Déterminer le type de média (image ou vidéo) et définir le chemin source
     if (image) {
         mediaType = "image";
         mediaSource = `Sample Photos/${photographerName}/${image}`;
@@ -59,9 +62,9 @@ const pageMediaTemplate = async (data) => {
         const contentCardMedia = document.createElement ('div');
         contentCardMedia.classList.add('media-photographer__card__content');
         contentCardMedia.setAttribute('tabindex', '0');
-
         const descriptionCard= document.createElement ('h3');
         descriptionCard.textContent = title;
+
         descriptionCard.classList.add('media-photographer__card__content__description'); 
         descriptionCard.setAttribute('tabindex', '1');        
         const likeCard= document.createElement ('div');

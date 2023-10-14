@@ -124,7 +124,7 @@
 }
 .lightbox__prev {
   left: 0;
-  rotate: 180deg;
+  transform: rotate(180deg);
 }
 .lightbox__container {
   position: relative;
@@ -143,7 +143,7 @@
   max-height: 500px;
   padding: 0px 96px 0px 96px;
   animation: lightboxIn 0.5s;
-  transition: opacity 0, 3s;
+  transition: opacity 0.3s;
 }
 .lightbox__container__content {
   display: flex;

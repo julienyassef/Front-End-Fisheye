@@ -3,7 +3,7 @@ export const getPhotographers = async () => {
     try {
         // récupérer des données à partir du JSON
         const response = await fetch('./data/photographers.json'); 
-        // la réponse de la requête est transformée en données JSON 
+        // Transformer la réponse de la requête en données JSON
         const photographersData = await response.json();
         return photographersData;
     } catch (error) {
@@ -12,9 +12,13 @@ export const getPhotographers = async () => {
     }
 };
 
+// Cette fonction récupère un photographe en fonction de son ID
 export const getPhotographerFromID = async (id) => {
+    // Récupérer toutes les données des photographes
     const data = await getPhotographers();
+     // Extraire le tableau des photographes à partir des données
     const photographers = data.photographers;
+    // Rechercher le photographe dont l'ID correspond à la valeur passée en paramètre
     const photographer = photographers.find(photographer => photographer.id == id);
     return photographer;
 }
